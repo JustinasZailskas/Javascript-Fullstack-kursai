@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Formos</h1>
+    <h3>Pirma uzduotis</h3>
+    <form action="http://127.0.0.1:5500/Intro/links/forms.html">
+      <input
+        placeholder="Vartotojo vardas"
+        type="text"
+        id="username"
+        name="username"
+      /><br />
+      <input
+        placeholder="Slaptazodis"
+        type="password"
+        id="password"
+        name="password"
+      /><br />
+      <button type="submit">Prisijungti</button>
+    </form>
+    <h3>Antra uzduotis</h3>
+    <form action="http://127.0.0.1:5500/Intro/links/forms.html">
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Jusu vardas"
+      /><br />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Jusu el. pasto adresas"
+      /><br />
+      <input
+        type="text"
+        id="topic"
+        name="topic"
+        placeholder="Zinutes tema"
+      /><br />
+      <textarea
+        name="message"
+        rows="3"
+        cols="10"
+        placeholder="Zinute"
+      ></textarea
+      ><br />
+      <button type="submit">Siusti zinute</button>
+    </form>
+    <h3>Trecia uzduotis</h3>
+    <form action="">
+      <label for="nameID">Vardas</label><br />
+      <input type="text" id="nameID" name="name" placeholder="Vardas" /><br />
+      <label for="emailID">El. pasto adresas</label><br />
+      <input
+        type="email"
+        id="emailID"
+        name="email"
+        placeholder="El. pasto adresas"
+      /><br />
+      <label for="remailID">El. pasto adresas dar karta</label><br />
+      <input
+        type="email"
+        id="remailID"
+        name="remail"
+        placeholder="El. pasto adresas dar karta"
+      /><br />
+      <label for="descriptionID">Aprasymas apie save</label><br />
+      <textarea
+        id="descriptionID"
+        name="description"
+        rows="4"
+        cols="15"
+        placeholder="Aprasymas apie save"
+      ></textarea
+      ><br />
+      <input type="radio" id="women" name="gender" value="Moteris" /><label
+        for="women"
+        >Moteris</label
+      >
+      <input type="radio" id="men" name="gender" value="Vyras" /><label
+        for="men"
+        >Vyras</label
+      ><br />
+      <button type="submit">Registruotis</button>
+    </form>
+  </body>
+</html>
