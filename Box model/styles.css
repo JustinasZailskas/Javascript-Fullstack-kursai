@@ -1,0 +1,9 @@
+body {
+  background-color: aquamarine;
+}
+
+div {
+  background-color: rgb(255, 235, 205);
+  max-width: 80%;
+  margin: 5em auto;
+}

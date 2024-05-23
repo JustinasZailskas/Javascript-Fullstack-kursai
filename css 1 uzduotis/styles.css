@@ -1,0 +1,84 @@
+body {
+  background-color: #f2e9d8;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  background-color: rgb(0, 0, 0, 0.2);
+  font-weight: 700;
+  font-size: 3em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+table {
+  background-image: url("./paveiksliukai/pexels-photo-69903.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  font-size: 1.8em;
+  width: 500px;
+  height: 20px;
+}
+
+td {
+  color: rgba(16, 12, 27, 0.7);
+}
+
+table,
+td {
+  border: 2px solid seagreen;
+  border-collapse: collapse;
+}
+
+.langeliai {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.pirmas-paragrafas {
+  color: green;
+  font-size: 1.5em;
+  text-align: right;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+}
+
+.pirma-lentele td {
+  vertical-align: top;
+}
+
+a {
+  color: #ed0a3f;
+  font-size: 300;
+  text-decoration: none;
+}
+a:hover {
+  color: #2d383a;
+}
+
+li {
+  text-transform: lowercase;
+}
+
+img {
+  height: 200px;
+}
+
+ul li {
+  list-style-type: square;
+}
+ol li {
+  list-style-type: upper-roman;
+}
+
+.saraso-elementai {
+  list-style-type: none;
+  border-bottom: 2px solid silver;
+}
+
+.container {
+  margin: auto;
+  width: 550px;
+}
