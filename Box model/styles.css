@@ -46,3 +46,18 @@ div {
 #septintas input {
   display: block;
 }
+
+.divas p {
+  font-size: 2em;
+}
+.divas a {
+  font-size: 2em;
+}
+.divas mark:hover {
+  position: relative;
+  bottom: 10px;
+}
+.divas a:hover {
+  position: relative;
+  left: 20px;
+}
