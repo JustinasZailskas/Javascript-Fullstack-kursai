@@ -15,12 +15,7 @@
   margin-bottom: 32px;
   overflow: hidden;
 }
-.card-image-container {
-  width: 276px;
-  height: 208px;
-}
 .card-image {
-  background-size: cover;
   width: 276px;
   height: 176px;
   object-fit: cover;
@@ -34,15 +29,16 @@
   top: 148px;
   left: 204px;
   text-align: center;
+  box-shadow: 0px 1px 4px 0px #60617029;
 }
 .card-date-day-text {
-  margin: auto;
+  padding-top: 6px;
   font-weight: 600;
   font-size: 24px;
   line-height: 28px;
 }
 .card-date-month-text {
-  margin: auto;
+  padding: 0;
   font-weight: 400;
   font-size: 12px;
   line-height: 22px;
@@ -56,18 +52,19 @@ body {
   font-family: "Inter";
 }
 .article-title-block {
-  padding: 0px 16px 16px;
+  padding: 32px 16px 16px 16px;
 }
 .article-title-type {
-  margin: 2px 0;
+  margin: 0;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
   color: #959393;
 }
 .article-title-name {
-  margin: 2px 0;
+  margin: 0;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+  padding-bottom: 12px;
 }
