@@ -1,0 +1,73 @@
+.container {
+  width: 527px;
+  height: 1326px;
+  background-color: #e2e1e1;
+  margin: auto;
+}
+.card {
+  position: relative;
+  top: 90px;
+  background-color: #ffffff;
+  width: 276px;
+  height: 345px;
+  border-radius: 12px;
+  margin: auto;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.card-image-container {
+  width: 276px;
+  height: 208px;
+}
+.card-image {
+  background-size: cover;
+  width: 276px;
+  height: 176px;
+  object-fit: cover;
+}
+.card-date-container {
+  position: absolute;
+  background-color: #ffffff;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  top: 148px;
+  left: 204px;
+  text-align: center;
+}
+.card-date-day-text {
+  margin: auto;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+}
+.card-date-month-text {
+  margin: auto;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+}
+.card2-border-shadow {
+  border: 3px solid;
+  border-color: #3e7fe1;
+  box-shadow: 8px 13px 23px 9px #3e7fe14d;
+}
+body {
+  font-family: "Inter";
+}
+.article-title-block {
+  padding: 0px 16px 16px;
+}
+.article-title-type {
+  margin: 2px 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #959393;
+}
+.article-title-name {
+  margin: 2px 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
