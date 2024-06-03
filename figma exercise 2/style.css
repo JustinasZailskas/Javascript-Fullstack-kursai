@@ -1,0 +1,47 @@
+body {
+  font-family: "Inter";
+  font-size: 20px;
+  line-height: 22px;
+  color: #373636;
+}
+
+.container {
+  background-color: #e2e1e1;
+  width: 796px;
+  height: 355px;
+  margin: auto;
+}
+
+.title-container {
+  position: relative;
+  margin: auto;
+  top: 94px;
+  width: 476px;
+  height: 128px;
+  /* background-color: aqua; */
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 128px;
+  line-height: 128px;
+  color: #121212;
+  text-align: center;
+}
+
+h3 {
+  position: absolute;
+  margin: 0 200px;
+  color: #959393;
+}
+
+p {
+  text-align: center;
+  margin-top: 25px;
+}
+
+img {
+  position: absolute;
+  top: 86px;
+  left: 424px;
+}
