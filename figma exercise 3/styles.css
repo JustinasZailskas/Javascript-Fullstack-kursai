@@ -1,0 +1,55 @@
+body {
+  font-family: "Inter";
+  color: #ffffff;
+  background-color: #131417;
+}
+
+.container {
+  /* background-color: #131417;
+  width: 796px;
+  height: 567px;
+  margin: auto; */
+  background-color: rgba(34, 34, 37, 0.7);
+  position: relative;
+  top: 106px;
+  left: 66px;
+  right: 55px;
+  width: 675px;
+  height: 355px;
+  border-radius: 12px;
+  margin: auto;
+}
+
+.content-container {
+  width: 531px;
+  height: 224px;
+  padding: 66px 72px;
+}
+
+.title,
+h1 {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 48px;
+}
+
+.text,
+p {
+  padding: 17px 0;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+button {
+  background-color: rgba(34, 34, 37, 0.7);
+  width: 148px;
+  height: 42px;
+  border-radius: 12px;
+  border: 2px solid rgba(241, 121, 101, 1);
+  padding: 8px 16px;
+  color: rgba(247, 144, 144, 1);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -0.05em;
+}
