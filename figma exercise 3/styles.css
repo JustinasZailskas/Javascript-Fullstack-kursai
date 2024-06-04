@@ -5,10 +5,6 @@ body {
 }
 
 .container {
-  /* background-color: #131417;
-  width: 796px;
-  height: 567px;
-  margin: auto; */
   background-color: rgba(34, 34, 37, 0.7);
   position: relative;
   top: 106px;
@@ -52,4 +48,27 @@ button {
   font-weight: 600;
   line-height: 26px;
   letter-spacing: -0.05em;
+}
+
+.megaphone {
+  position: absolute;
+  top: -108px;
+  left: -66px;
+}
+
+.blueEllipse2 {
+  position: absolute;
+  top: 286px;
+  left: 568px;
+}
+
+.tomatoEllipse1 {
+  position: absolute;
+  top: 263px;
+  left: 632px;
+}
+.starImg {
+  position: absolute;
+  top: 208px;
+  left: 542px;
 }
