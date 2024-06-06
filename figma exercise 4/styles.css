@@ -1,6 +1,6 @@
 body {
-  font-size: 128px;
-  line-height: 128px;
+  font-size: 8rem;
+  line-height: 8rem;
   letter-spacing: 0.2px;
   text-align: center;
 }
@@ -28,4 +28,44 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: gainsboro;
+}
+
+.navigation-block {
+  position: fixed;
+  top: 80%;
+  margin-left: 13vw;
+  margin-right: 5vw;
+  width: 82vw;
+  height: 4rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 4rem;
+}
+.button-block {
+  float: left;
+  width: 63.44vw;
+  height: 3.625rem;
+  background-color: #f5f3f3;
+  border-radius: 1rem;
+}
+p {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.button {
+  width: 6rem;
+  height: 2.625rem;
+  border: 2px solid #f17965;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  color: #f17965;
+  text-decoration: none;
+}
+
+img {
+  float: right;
+  width: 64px;
+  height: 64px;
 }
