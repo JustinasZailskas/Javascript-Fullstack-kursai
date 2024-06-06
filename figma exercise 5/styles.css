@@ -1,0 +1,36 @@
+body {
+  width: 796px;
+  margin: auto;
+  font-family: Inter;
+  letter-spacing: 0.42px;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  background: linear-gradient(#afbacb, #afbacb00);
+  height: 62px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 32px;
+  padding-top: 15px;
+  padding-left: 133px;
+}
+.paragraph-block {
+  width: 464px;
+  padding: 56px 199px 132px 133px;
+}
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+div.sticky {
+  position: sticky;
+  top: 0;
+  line-height: 0;
+}
