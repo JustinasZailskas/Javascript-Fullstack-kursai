@@ -1,5 +1,6 @@
 header {
   height: calc(100vh - 120px);
+  /* height: calc(70vh - 120px); */
   background: url(../images/header.png) center;
   display: flex;
   justify-content: center;
