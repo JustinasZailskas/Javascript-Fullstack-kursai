@@ -33,7 +33,7 @@
   font-weight: 400;
   font-size: 16px;
   text-align: center;
-  margin: 31.47px auto 27.23px;
+  margin: 31px auto 27px;
 }
 
 .tickets-section .content-part .ticket-block .border-row {
@@ -41,8 +41,33 @@
   border: 1px solid #0000001a;
 }
 
-.primary-button {
-  color: white;
+.tickets-section .content-part .ticket-block .price-block .price {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 2px;
+  max-width: 181px;
+}
+
+.tickets-section .content-part .ticket-block .price-block span {
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: #eb5757;
+  margin-left: 14px;
+}
+
+.tickets-section .content-part .ticket-block .button {
   background: #eb5757;
-  margin-right: 21px;
+  width: 48%;
+  margin: 0 auto 39px;
+  /* margin: 0 116px 39px; */
+  padding: 10.5px;
+  text-align: center;
+}
+
+.tickets-section .content-part .ticket-block .button a {
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
 }
