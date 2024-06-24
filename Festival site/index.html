@@ -23,19 +23,21 @@
     <link rel="stylesheet" href="./styles/artists-section.css" />
     <link rel="stylesheet" href="./styles/gallery.css" />
     <link rel="stylesheet" href="./styles/tickets.css" />
+    <link rel="stylesheet" href="./styles/location.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
   </head>
   <body>
-    <nav>
+    <nav id="navigation">
       <h1>
         <a href="#">Festivalis ABC</a>
       </h1>
       <ul>
         <li class="active"><a href="#">Pradžia</a></li>
-        <li><a href="#">Atlikėjai</a></li>
-        <li><a href="#">Kaip rasti?</a></li>
-        <li><a href="#">Galerija</a></li>
-        <li><a href="#">Bilietai</a></li>
-        <li><a href="#">Susisiekti</a></li>
+        <li><a href="#artists">Atlikėjai</a></li>
+        <li><a href="#location">Kaip rasti?</a></li>
+        <li><a href="#gallery">Galerija</a></li>
+        <li><a href="#tickets">Bilietai</a></li>
+        <li><a href="#contact">Susisiekti</a></li>
       </ul>
     </nav>
 
@@ -44,8 +46,8 @@
         <h1>Festivalis ABC</h1>
         <p>Šiais metais Festivalis ABC vyks Trakuose</p>
         <div class="buttons">
-          <a href="#" class="primary-button">Pirkti bilietą</a>
-          <a href="#" class="secondary-button">Žiūrėti atlikėjus</a>
+          <a href="#tickets" class="primary-button">Pirkti bilietą</a>
+          <a href="#artists" class="secondary-button">Žiūrėti atlikėjus</a>
         </div>
       </div>
     </header>
@@ -59,7 +61,7 @@
       </p>
     </div>
 
-    <div class="artists-section general-section">
+    <div class="artists-section general-section" id="artists">
       <div class="container">
         <div class="title-part">
           <h2>Atlikėjai</h2>
@@ -126,7 +128,7 @@
         </div>
       </div>
     </div>
-    <div class="gallery-section general-section">
+    <div class="gallery-section general-section" id="gallery">
       <div class="gallery-container">
         <div class="title-part">
           <h2>Galerija</h2>
@@ -156,7 +158,7 @@
       </div>
     </div>
 
-    <div class="tickets-section general-section">
+    <div class="tickets-section general-section" id="tickets">
       <div class="tickets-container">
         <div class="title-part">
           <h2>Bilietai</h2>
@@ -217,5 +219,30 @@
         </div>
       </div>
     </div>
+    <div class="location-section general-section" id="location">
+      <div class="location-container">
+        <div class="title-part">
+          <h2>Kaip rasti?</h2>
+          <div class="red-row"></div>
+          <p>
+            Nibh habitant sed id tellus sem turpis commodo nulla sed eget arcu
+            convallis facilisi ac vitae facilisi sit nisl, diam
+          </p>
+        </div>
+        <img src="./images/map.png" alt="Location" />
+      </div>
+    </div>
+
+    <footer id="contact">
+      <h6>Festivalis ABC, Visos teisės saugomos, 2021</h6>
+      <ul>
+        <li><a href="#navigation">Pradžia</a></li>
+        <li><a href="#artists">Atlikėjai</a></li>
+        <li><a href="#location">Kaip rasti?</a></li>
+        <li><a href="#gallery">Galerija</a></li>
+        <li><a href="#tickets">Bilietai</a></li>
+        <li><a href="#contact">Susisiekti</a></li>
+      </ul>
+    </footer>
   </body>
 </html>
