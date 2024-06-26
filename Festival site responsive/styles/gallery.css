@@ -1,0 +1,22 @@
+.gallery-section {
+  background: #eb57571a;
+}
+
+.gallery-section .gallery-container {
+  width: 100%;
+  max-width: 1338px;
+  margin: 0 auto;
+}
+
+.gallery-section .content-part {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px 24px;
+}
+
+.gallery-section .content-part img {
+  width: 248px;
+  height: 248px;
+  object-fit: cover;
+}

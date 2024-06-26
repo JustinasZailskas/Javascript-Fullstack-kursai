@@ -1,0 +1,40 @@
+.artists-section {
+  background: #f8f8f8;
+}
+
+.artists-section .content-part {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.artists-section .content-part .artist-block {
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 28px 40px;
+}
+.artists-section .content-part .artist-block h3 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 36px 0 8px 0;
+}
+.artists-section .content-part .artist-block p {
+  width: 206px;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  margin: auto;
+}
+
+.artists-section .content-part .artist-block .image img {
+  width: 238px;
+  height: 238px;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+}
