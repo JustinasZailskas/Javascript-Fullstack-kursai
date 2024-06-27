@@ -4,19 +4,19 @@
 
 .gallery-section .gallery-container {
   width: 100%;
-  max-width: 1338px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
 .gallery-section .content-part {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 26px 24px;
+  justify-content: space-between;
+  gap: 26px 0;
 }
 
 .gallery-section .content-part img {
-  width: 248px;
-  height: 248px;
+  width: 245px;
+  height: 212px;
   object-fit: cover;
 }

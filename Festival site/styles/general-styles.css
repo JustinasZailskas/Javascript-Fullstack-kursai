@@ -15,27 +15,27 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .general-section {
-  padding: 100px 0;
+  padding: 57px 0 84px;
 }
 
 .general-section .container {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1034px;
   margin: 0 auto;
 }
 
 .general-section .title-part {
   text-align: center;
-  margin-bottom: 71px;
+  margin-bottom: 56px;
 }
 
 .general-section .title-part h2 {
   color: #222222;
-  font-size: 50px;
+  font-size: 36px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0;
@@ -45,13 +45,13 @@ h6 {
   background-color: #eb5757;
   width: 31px;
   height: 5px;
-  margin: 19px auto;
+  margin: 14px auto;
 }
 
 .general-section .title-part p {
   width: 100%;
   max-width: 735px;
-  font-size: 20px;
+  font-size: 16px;
   color: #222;
-  margin: 0 auto;
+  margin: 18px auto;
 }

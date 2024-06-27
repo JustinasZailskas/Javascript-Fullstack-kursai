@@ -1,12 +1,12 @@
 .citation {
   background: #eb5757;
-  padding: 39px 0;
+  padding: 30px 0;
 }
 .citation p {
   margin: 0 auto;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   color: white;
   width: 100%;
-  max-width: 1218px;
+  max-width: 1096px;
 }
