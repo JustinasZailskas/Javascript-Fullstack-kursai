@@ -1,10 +1,10 @@
 footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 152px;
-  padding: 65px 115px;
+  max-width: 1320px;
+  height: 100px;
   box-sizing: border-box;
+  margin: auto;
 }
 
 footer a {

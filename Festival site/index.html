@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="./styles/gallery.css" />
     <link rel="stylesheet" href="./styles/tickets.css" />
     <link rel="stylesheet" href="./styles/location.css" />
+    <link rel="stylesheet" href="./styles/contact.css" />
     <link rel="stylesheet" href="./styles/footer.css" />
   </head>
   <body>
@@ -227,7 +228,7 @@
     <div class="location-section general-section" id="location">
       <div class="location-container">
         <div class="title-part">
-          <h2>Kaip rasti?</h2>
+          <h2>Location</h2>
           <div class="red-row"></div>
           <p>
             Nibh habitant sed id tellus sem turpis commodo nulla sed eget arcu
@@ -237,16 +238,86 @@
         <img src="./images/map.png" alt="Location" />
       </div>
     </div>
+    <div class="contact-section general-section">
+      <div class="contact-container">
+        <div class="title-part">
+          <h2>Contact Us</h2>
+          <div class="red-row"></div>
+        </div>
+        <div class="content-part">
+          <div class="contact-information-block">
+            <div class="information-block-title-description">
+              <h4>Contact Information</h4>
+              <p>
+                Nibh habitant sed id tellus sem turpis commodo nulla sed eget.
+              </p>
+            </div>
+            <div class="information-block-contacts-info">
+              <p>
+                <img src="./images/icons/smartphone-line.jpg" alt="Phone" />
+                <span>Phone:</span> +37066574959
+              </p>
+              <p>
+                <img src="./images/icons/orientation-icon.jpg" alt="Location" />
+                <span>Address:</span> Pušyno alėja 53a, trakai
+              </p>
+              <p>
+                <img src="./images/icons/email-icon.jpg" alt="Email" />
+                <span>Email:</span> festivalis.ABC@info.lt
+              </p>
+            </div>
+            <div class="information-block-icons">
+              <img src="./images/icons/instagram-icon.png" alt="Instagram" />
+              <img src="./images/icons/facebook-icon.png" alt="Facebook" />
+              <img src="./images/icons/youtube-icon.png" alt="Youtube" />
+            </div>
+          </div>
+          <div class="contact-input-form-container">
+            <form action="">
+              <label for="fullname">
+                Name, Surname <br />
+                <input
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  placeholder="Name, Surname"
+                />
+              </label>
+              <label for="email">
+                Email<br />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="email@domain"
+                />
+              </label>
+              <label for="message">
+                Message<br />
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Message"
+                  rows="6"
+                >
+Message
+                </textarea>
+              </label>
+              <input type="submit" value="Send" class="submit-button" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <footer id="contact">
-      <h6>Festivalis ABC, Visos teisės saugomos, 2021</h6>
+    <footer>
+      <h6>Festival ABC, Copyright, 2022</h6>
       <ul>
-        <li><a href="#navigation">Pradžia</a></li>
-        <li><a href="#artists">Atlikėjai</a></li>
-        <li><a href="#location">Kaip rasti?</a></li>
-        <li><a href="#gallery">Galerija</a></li>
-        <li><a href="#tickets">Bilietai</a></li>
-        <li><a href="#contact">Susisiekti</a></li>
+        <li><a href="#artists">Artists</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#tickets">Tickets</a></li>
+        <li><a href="#contact">Contacts</a></li>
       </ul>
     </footer>
   </body>

@@ -2,9 +2,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1920px;
+  max-width: 1320px;
   height: 60px;
-  padding: 17px 373px 17px 298px;
+  /* padding: 17px 373px 17px 298px; */
   margin: auto;
   box-sizing: border-box;
 }
