@@ -11,14 +11,24 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  gap: 120px;
+}
+
+@media only screen and (width <= 1600px) {
+  .contact-section .content-part {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 120px;
+  }
 }
 
 .contact-information-block {
   width: 100%;
   max-width: 411px;
-  padding: 10px 120px 0 329px;
+  /* padding: auto; */
 }
 
 .contact-information-block p {
@@ -30,6 +40,7 @@
 
 .information-block-title-description {
   min-height: 113px;
+  padding-top: 34px;
 }
 
 .information-block-title-description h4 {
@@ -68,7 +79,6 @@
 .contact-section .content-part .contact-input-form-container {
   width: 100%;
   max-width: 1060px;
-  min-height: ;
   background-color: #22222205;
 }
 
