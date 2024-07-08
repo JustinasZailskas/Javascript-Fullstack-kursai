@@ -5,16 +5,16 @@ nav {
   color: white;
   background-color: #f95738;
 }
-nav .title-section {
+nav .navigation-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100&;
+  width: 100%;
   max-width: 1320px;
   margin: auto;
   padding: 16px 0;
 }
-nav .title-container {
+nav .navigation-title-container {
   display: flex;
 }
 nav .title-container-text {
@@ -40,7 +40,6 @@ nav a {
 nav ul {
   display: flex;
   justify-content: space-between;
-  gap: 36px;
   width: 100%;
   max-width: 478px;
 }
