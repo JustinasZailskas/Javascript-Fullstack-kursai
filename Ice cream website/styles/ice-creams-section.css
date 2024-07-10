@@ -2,13 +2,12 @@
   width: 100%;
   max-width: 1052px;
   background-color: white;
-  margin: auto;
+  margin: 100px auto;
 }
 
 .ice-cream-section h1 {
-  padding: 100px 0;
+  margin-bottom: 60px;
 }
-
 .images-container {
   display: flex;
   flex-wrap: wrap;

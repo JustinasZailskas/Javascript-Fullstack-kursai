@@ -1,0 +1,87 @@
+.products-section {
+  width: 100%;
+  background-color: rgba(22, 71, 128, 1);
+}
+
+.products-section-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: auto;
+}
+
+.products-section-container h1 {
+  width: 100%;
+  max-width: 544px;
+  text-align: right;
+  padding: 100px 0 60px 0;
+  color: rgba(239, 190, 16, 1);
+}
+.products-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 100px;
+}
+.product-card {
+  width: 100%;
+  max-width: 334px;
+  height: 505px;
+  border-radius: 40px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 1);
+}
+.product-card img {
+  width: 100%;
+  height: max(10rem, 20vh);
+  object-fit: cover;
+}
+
+.product-card-information {
+  display: flex;
+  flex-direction: column;
+  width: 313px;
+  padding: 30px 0;
+  margin: auto;
+}
+
+.product-card-information h2 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.product-card-information .black-row {
+  background-color: rgba(0, 0, 0, 1);
+  width: 23px;
+  height: 3px;
+  margin: 16px auto;
+}
+.product-card-information p {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 3px;
+  text-align: center;
+  width: 100%;
+  max-width: 227px;
+  margin: auto;
+}
+
+.product-card-information .button {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 16px auto 0;
+  border: 2px solid rgba(22, 71, 128, 1);
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  max-width: 159px;
+  height: 50px;
+}
