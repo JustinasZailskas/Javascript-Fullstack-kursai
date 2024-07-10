@@ -1,0 +1,73 @@
+.feedback-section {
+  width: 100%;
+  background-color: rgba(22, 71, 128, 1);
+}
+
+.feedback-section .container {
+  width: 100%;
+  max-width: 1320px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 53px;
+  margin: auto;
+  padding: 105px 0;
+}
+
+.container .slider-icon img {
+  width: 80px;
+  height: 80px;
+}
+
+.container .icon {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}
+.feedbacks-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 46px;
+}
+
+.feedback-card {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+  max-height: 400px;
+  border-radius: 20px;
+  background: rgba(26, 84, 152, 1);
+  padding: 40px;
+  /* margin: 40px; */
+}
+
+.feedback-text-container {
+  width: 240px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.feedback-text-container .text {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: rgba(255, 255, 255, 1);
+  padding-top: 0;
+}
+
+.feedback-text-container .fullname {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+}
