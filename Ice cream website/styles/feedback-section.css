@@ -24,6 +24,7 @@
   height: 50px;
   width: 50px;
   border-radius: 50px;
+  object-fit: cover;
 }
 .feedbacks-cards {
   display: flex;
@@ -42,7 +43,6 @@
   border-radius: 20px;
   background: rgba(26, 84, 152, 1);
   padding: 40px;
-  /* margin: 40px; */
 }
 
 .feedback-text-container {

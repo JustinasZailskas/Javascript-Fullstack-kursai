@@ -25,7 +25,7 @@
   letter-spacing: -1.6px;
   padding-top: 40px;
 }
-.container img {
+.container .about-us-image {
   max-width: 511px;
   height: 481px;
   object-fit: cover;
