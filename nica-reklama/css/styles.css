@@ -1,0 +1,317 @@
+/* 
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+// <uniquifier>: Use a unique and descriptive class name
+
+.roboto-condensed-<uniquifier> {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+*/
+
+/* 
+====================
+GLOBAL STYLES
+====================
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 47px;
+  color: #404445;
+}
+
+h2.white {
+  color: white;
+}
+
+p.sub-heading {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23px;
+  color: #5f6b81;
+}
+
+p.sub-heading.white {
+  color: white;
+}
+
+.btn {
+  padding: 14px 50px;
+}
+
+.btn-primary {
+  background: #43c45f;
+  border-color: #43c45f;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  background: #3baf54;
+  border-color: #3baf54;
+  border-radius: 5px;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ====================
+SECTION GLOBAL STYLES
+==================== */
+
+.page-section {
+  padding: 112px 0;
+}
+
+.page-section .page-section-header-row {
+  text-align: center;
+}
+
+.page-section .page-section-header-row h2 {
+  margin-bottom: 25px;
+}
+.page-section .page-section-header-row p.sub-heading {
+  width: 100%;
+  max-width: 648px;
+  margin: 0 auto;
+}
+
+/* =================
+NAVIGATION STYLES
+====================*/
+
+.navbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar .navbar-brand {
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: left;
+  color: rgba(135, 139, 155, 1);
+}
+
+.navbar .navbar-brand:hover {
+  color: rgba(67, 196, 95, 1);
+}
+
+.navbar .navbar-toggler {
+  border-color: transparent;
+}
+@media only screen and (max-width: 991px) {
+  .navbar .navbar-nav {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .navbar .navbar-nav .nav-item:not(:first-child) {
+    margin-left: 37px;
+  }
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #404445;
+}
+
+@media only screen and (max-width: 991px) {
+  .navbar .navbar-nav .nav-item .nav-link {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.navbar .navbar-nav .nav-item .nav-link.active {
+  font-weight: 900;
+  color: rgba(67, 196, 95, 1);
+}
+
+.navbar .navbar-nav .nav-item .nav-link:hover {
+  color: rgba(67, 196, 95, 1);
+}
+
+/* ==================
+    MAIN PAGE STYLES
+====================*/
+
+/* 
+    HEADER STYLES
+*/
+
+.home-page header {
+  height: calc(100vh - 80px);
+  background: linear-gradient(rgba(98, 100, 113, 0.5), rgba(98, 100, 113, 0.5)),
+    url("../images/header-updated.jpg") top center no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+.home-page header .container,
+.home-page header .container .row {
+  height: 100%;
+}
+
+@media only screen and (max-width: 576px) {
+  .home-page header h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 54px;
+    line-height: 63px;
+    color: #ffffff;
+    margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 577px) {
+  .home-page header h1 {
+    font-style: normal;
+    font-size: 70px;
+    font-weight: 500;
+    line-height: 82px;
+    color: #ffffff;
+    margin-bottom: 0;
+  }
+}
+
+.home-page header p {
+  font-style: normal;
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 30px;
+  text-align: center;
+  color: #d5d7d8;
+  max-width: 681px;
+  width: 100%;
+  margin: 33px auto 49px;
+}
+
+/* 
+    General information
+*/
+
+@media only screen and (max-width: 768px) and (max-width: 991px) {
+  .home-page .general-information .text-information-col .information-block {
+    margin-bottom: 52px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .home-page
+    .general-information
+    .text-information-col
+    .information-block:nth-child(-n + 2) {
+    margin-bottom: 52px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .home-page .general-information .text-information-col .information-block {
+    margin-bottom: 49px;
+    text-align: center;
+  }
+}
+
+.home-page .general-information .text-information-col .information-block .icon {
+  color: rgba(73, 192, 252, 1);
+  font-size: 38px;
+}
+.home-page .general-information .text-information-col .information-block h3 {
+  font-style: normal;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  color: #404445;
+  margin: 18px 0 10px;
+}
+.home-page .general-information .text-information-col .information-block p {
+  font-style: normal;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: left;
+  color: #5f6b81;
+  margin: 0;
+}
+
+/* =================
+  VIDEO SECTION STYLES
+====================*/
+.home-page .video-section {
+  background: #f1f8ff;
+}
+
+/* .home-page .video-section .video-col iframe {
+  width: 100%;
+} */
+
+/* =================
+    FOOTER STYLES
+====================*/
