@@ -1,0 +1,59 @@
+/* 
+    General styles
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h5,
+h6,
+p,
+span,
+li,
+a {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+}
+body {
+  max-width: 1440px;
+  margin: auto;
+}
+
+/* =================
+    Navigation styles
+===================== */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px 80px;
+}
+
+.navbar-collapse {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 58px;
+}
+
+.navbar-collapse .collapse .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.navbar-collapse .collapse .navbar-nav .nav-item {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  list-style-type: none;
+  text-transform: uppercase;
+}
+
+.navbar-collapse .collapse .navbar-nav .nav-item .nav-link {
+  text-decoration: none;
+  color: rgba(50, 41, 47, 1);
+}
