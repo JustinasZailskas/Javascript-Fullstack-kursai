@@ -136,8 +136,8 @@ Header styles
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  max-width: 737px;
-  max-height: 592px;
+  width: 737px;
+  height: 592px;
   padding-top: 96px;
   padding-bottom: 76px;
 }
@@ -167,4 +167,116 @@ Header styles
   background-color: rgba(50, 41, 47, 1);
   width: 122px;
   height: 2px;
+}
+
+/* 
+ Main section
+*/
+
+.main-section {
+  max-width: 1280px;
+  padding: 85px 80px;
+  margin: auto;
+}
+
+.main-section h1 {
+  font-weight: 200;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  /* ßpadding-top: 85px; */
+  padding-bottom: 55px;
+}
+
+.main-section .row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 24px;
+  align-items: center;
+  padding-bottom: 55px;
+}
+
+.main-section .row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+}
+
+.main-section .text-container {
+  max-width: 432px;
+  margin: auto;
+}
+
+.main-section .text-container h2 {
+  font-size: 32px;
+  line-height: 40px;
+}
+.main-section .text-container p {
+  font-size: 14px;
+  line-height: 24px;
+  padding: 16px 0;
+}
+
+.main-section .text-container .button {
+  display: inline-block;
+  padding: 12px 24px;
+  color: rgba(50, 41, 47, 1);
+  border: 1px solid rgba(50, 41, 47, 1);
+  text-decoration: none;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.main-section .image-container {
+  width: 628px;
+  height: 424px;
+}
+
+.main-section .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 
+Product
+*/
+
+.product-section {
+  max-width: 1280px;
+  padding: 75px 80px;
+  margin: auto;
+}
+.product-section h2 {
+  font-size: 32px;
+  line-height: 40px;
+  padding: 16px 0;
+}
+
+.product-section .row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 48px 0 16px;
+}
+.product-section .row .column {
+  flex: 1;
+}
+.product-section .row .column-2x:nth-child(-n + 1) {
+  flex: 2;
+}
+
+.product-section .row img {
+  width: 100%;
+  height: 529px;
+  object-fit: cover;
+}
+.product-section .row h5 {
+  font-size: 18px;
+  line-height: 24px;
+  padding-top: 16px;
 }
