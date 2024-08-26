@@ -12,9 +12,9 @@ let numArray1 = [];
 let numArray2 = [];
 let numArray3 = [];
 
-function generateNumbers(array) {
+function generateNumbers(array, quantity) {
   let newArray = array;
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < quantity; i++) {
     let number = Math.floor(Math.random() * 100);
     newArray.push(number);
   }
@@ -32,9 +32,9 @@ function findMaxNumber(array) {
   }
   return maxNum;
 }
-generateNumbers(numArray1);
-generateNumbers(numArray2);
-generateNumbers(numArray3);
+generateNumbers(numArray1, 7);
+generateNumbers(numArray2, 9);
+generateNumbers(numArray3, 11);
 
 showArray(numArray1);
 showArray(numArray2);
