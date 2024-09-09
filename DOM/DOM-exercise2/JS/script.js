@@ -1,22 +1,45 @@
-function createPlanElement() {
-  const newPlanValue = document.getElementById("newPlanInput").value;
+const tasks = [];
 
+function showTask(task, index) {
+  const taskItem = document.createElement("li");
+  const deleteButton = document.createElement("button");
+  taskItem.textContent = task;
+  deleteButton.textContent = "Delete";
+  deleteButton.style.marginLeft = "10px";
+  taskItem.appendChild(deleteButton);
+  deleteButton.addEventListener("click", () => {
+    tasks.splice(index, 1);
+    showAllTasks(tasks);
+  });
+  document.getElementById("tasksList").appendChild(taskItem);
+}
+
+function showAllTasks(tasks) {
+  document.getElementById("tasksList").innerHTML = "";
+  tasks.forEach((task, index) => {
+    showTask(task, index);
+  });
+}
+showAllTasks(tasks);
+
+function createNewTask() {
+  const newPlanValue = document.getElementById("newTaskInput").value;
   if (!newPlanValue.trim().length) {
-    document.getElementById("newPlanInput").value = "";
+    document.getElementById("newTaskInput").value = "";
     return;
   }
-  const planItem = document.createElement("li");
-  planItem.textContent = newPlanValue;
-  document.getElementById("plansList").appendChild(planItem);
-  document.getElementById("newPlanInput").value = "";
+  tasks.push(newPlanValue);
+  document.getElementById("newTaskInput").value = "";
 }
 
 document.getElementById("addButton").addEventListener("click", () => {
-  createPlanElement();
+  createNewTask();
+  showAllTasks(tasks);
 });
 
-document.getElementById("newPlanInput").addEventListener("keyup", (event) => {
+document.getElementById("newTaskInput").addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
-    createPlanElement();
+    createNewTask();
+    showAllTasks(tasks);
   }
 });
