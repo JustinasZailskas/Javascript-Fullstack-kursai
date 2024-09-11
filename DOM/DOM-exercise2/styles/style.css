@@ -1,7 +1,40 @@
 ul {
-  background-color: azure;
+  padding: 1rem;
+  margin: 0;
+  background-color: #a1d6b2;
+  box-shadow: 0 0 5px #cedf9f;
+  border: 1px solid #cedf9f;
+  border-radius: 5px;
+}
+
+button {
+  border-radius: 10px;
+  background-color: #e8b86d;
 }
 
 .task {
-  color: blueviolet;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  color: black;
+  background-color: #f1f3c2;
+  border-radius: 5px;
+}
+
+.task .startBtn {
+  background-color: #c2e8ce;
+}
+
+.task .stopBtn {
+  background-color: #758694;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 5px;
+}
+
+.displayMessage {
+  display: flex;
+  justify-content: center;
 }

@@ -1,6 +1,7 @@
-import { showAllTasks, createNewTask } from "./taskHelpers.js";
+import { showAllTasks } from "./taskHelpers.js";
+import { createNewTask } from "./createNewTask.js";
 
-const tasks = ["Task 1", "Task2"];
+const tasks = [];
 
 showAllTasks(tasks);
 
