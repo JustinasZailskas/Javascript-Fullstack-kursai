@@ -49,3 +49,61 @@ function changeFontSize() {
 function changeFontColor() {
   document.getElementById("paragrafas-5").style.color = "green";
 }
+
+//septintas div
+function pakeisti() {
+  document.getElementById("septinto-tekstas").textContent =
+    "Cia yra naujas tekstas";
+}
+
+//astuntas div
+function pakeisti2(elementas, tekstas) {
+  document.getElementById(elementas).textContent = tekstas;
+}
+
+//devintas div
+function pakeisti3(elementas, tekstas) {
+  document.getElementById(elementas).textContent = tekstas;
+}
+function kitaSpalva(elementas, spalva) {
+  document.getElementById(elementas).style.color = spalva;
+}
+
+//desimtas div
+let pirmas = 8;
+let antras = 4;
+
+let suma = pirmas + antras;
+let skirtumas = pirmas - antras;
+let sandauga = pirmas * antras;
+let dalmuo = pirmas / antras;
+
+document.getElementById("suma").textContent =
+  pirmas + " + " + antras + " = " + suma;
+document.getElementById("skirtumas").textContent =
+  pirmas + " - " + antras + " = " + skirtumas;
+document.getElementById("daugyba").textContent =
+  pirmas + " * " + antras + " = " + sandauga;
+document.getElementById("dalmuo").textContent =
+  pirmas + " / " + antras + " = " + dalmuo;
+
+//vienuoliktas div
+pirmas = 10;
+antras = 5;
+
+let rezultatas = `<p>${pirmas} + ${antras} = ${pirmas + antras}</p>
+<p>${pirmas} - ${antras} = ${pirmas - antras}</p>
+<p>${pirmas} * ${antras} = ${pirmas * antras}</p>
+<p>${pirmas} / ${antras} = ${pirmas / antras}</p>
+`;
+
+document.getElementById("vienuolikto-turinys").innerHTML = rezultatas;
+
+//dvyliktas div
+
+function keistiSpalva(elementas, spalva) {
+  document.getElementById(elementas).style.color = spalva;
+}
+function keistiDydi(elementas, dydis) {
+  document.getElementById(elementas).style.fontSize = dydis + "px";
+}

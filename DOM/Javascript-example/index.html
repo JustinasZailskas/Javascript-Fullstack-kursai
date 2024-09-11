@@ -31,6 +31,111 @@
         Distinctio dolores aperiam illum.
       </p>
     </div>
+    <div id="sestas">
+      <p>
+        <img src="bulb-off.png" alt="bulb" id="bulb" />
+      </p>
+      <button onclick="document.getElementById('bulb').src = 'bulb-on.png'">
+        Ijungti lempute
+      </button>
+      <button onclick="document.getElementById('bulb').src = 'bulb-off.png'">
+        isjungti lempute
+      </button>
+    </div>
+    <div id="septintas">
+      <button onclick="pakeisti()">Pakeisti teksta</button>
+      <p id="septinto-tekstas">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quidem
+        molestiae praesentium sapiente a dolorum, accusantium obcaecati libero
+        nemo voluptatum magni unde maxime earum deleniti at non ipsam inventore
+        omnis?
+      </p>
+    </div>
+    <div id="astuntas">
+      <button onclick="pakeisti2('astunto-tekstas', 'vienas du trys')">
+        Pakeisti teksta 1
+      </button>
+      <button
+        onclick="pakeisti2('astunto-tekstas', 'batai kupranugaris meska')"
+      >
+        Pakeisti teksta 2
+      </button>
+      <button onclick="pakeisti2('astunto-tekstas', 'stalas kede medis')">
+        Pakeisti teksta 3
+      </button>
+      <button onclick="pakeisti2('astunto-tekstas', 'berzas obelis slyva')">
+        Pakeisti teksta 4
+      </button>
+      <p id="astunto-tekstas">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia dolor
+        amet debitis totam omnis, neque impedit cupiditate excepturi fugit animi
+        repellat fuga ad molestias earum veritatis. Quasi, adipisci.
+        Accusantium, quibusdam?
+      </p>
+    </div>
+    <div id="devintas">
+      <button onclick="pakeisti3('devinto-tekstas', 'vienas du trys')">
+        Pakeisti teksta 1
+      </button>
+      <button onclick="pakeisti3('devinto-tekstas', 'keturi penki sesi')">
+        Pakeisti teksta 2
+      </button>
+      <button onclick="pakeisti3('devinto-tekstas', 'septyni astyni devyni')">
+        Pakeisti teksta 3
+      </button>
+      <button onclick="pakeisti3('devinto-tekstas', 'berzas obelis slyva')">
+        Pakeisti teksta 4
+      </button>
+      <br />
+      <button onclick="kitaSpalva('devinto-tekstas', 'yellow')">Geltona</button>
+      <button onclick="kitaSpalva('devinto-tekstas', 'green')">Zalia</button>
+      <button onclick="kitaSpalva('devinto-tekstas', 'red')">Raudona</button>
+      <p id="devinto-tekstas">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia dolor
+        amet debitis totam omnis, neque impedit cupiditate excepturi fugit animi
+        repellat fuga ad molestias earum veritatis. Quasi, adipisci.
+        Accusantium, quibusdam?
+      </p>
+    </div>
+    <div id="desimtas">
+      <p id="suma"></p>
+      <p id="skirtumas"></p>
+      <p id="daugyba"></p>
+      <p id="dalmuo"></p>
+    </div>
+    <div id="vienuoliktas">
+      <div id="vienuolikto-turinys"></div>
+    </div>
+    <div id="dvyliktas">
+      <p>
+        Spalva:
+        <button onclick="keistiSpalva('dvylikto-tekstas', 'black')">
+          Originali
+        </button>
+        <button onclick="keistiSpalva('dvylikto-tekstas', 'red')">
+          Raudona
+        </button>
+        <button onclick="keistiSpalva('dvylikto-tekstas', 'green')">
+          zalia
+        </button>
+        <button onclick="keistiSpalva('dvylikto-tekstas', 'blue')">
+          Melyna
+        </button>
+      </p>
+      <p>
+        Teksto dydis:
+        <button onclick="keistiDydi('dvylikto-tekstas', 16)">Orginalus</button>
+        <button onclick="keistiDydi('dvylikto-tekstas', 18)">18px</button>
+        <button onclick="keistiDydi('dvylikto-tekstas', 24)">24px</button>
+        <button onclick="keistiDydi('dvylikto-tekstas', 12)">12px</button>
+      </p>
+      <p id="dvylikto-tekstas">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam qui
+        optio soluta veritatis voluptas labore amet, reprehenderit magnam iusto
+        recusandae doloribus! Nihil soluta architecto, dignissimos molestiae
+        amet debitis exercitationem et?
+      </p>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>
