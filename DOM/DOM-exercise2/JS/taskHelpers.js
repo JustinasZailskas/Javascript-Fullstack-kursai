@@ -1,41 +1,49 @@
+import { getButtonLabel } from "./helpers/statusButtonsHelpers.js";
+
 function showTask(task, index, tasks) {
-  const taskItem = document.createElement("li");
+  const taskLiElement = document.createElement("li");
   const bttContainer = document.createElement("div");
-  // const deleteButton = document.createElement("button");
-  const startButton = document.createElement("button");
-  const stopButton = document.createElement("button");
+  const deleteButton = document.createElement("button");
+  const statusButton = document.createElement("button");
 
   //text contenct
-  taskItem.textContent = task;
-  // deleteButton.textContent = "Delete";
-  startButton.textContent = "Start";
-  stopButton.textContent = "Stop";
+  taskLiElement.textContent = task.title;
+  deleteButton.textContent = "Delete";
+  statusButton.textContent = getButtonLabel(task.status);
 
   //styles
-  taskItem.classList.add("task");
+  taskLiElement.classList.add("task");
   bttContainer.classList.add("buttonContainer");
   //append child section
 
-  startButton.addEventListener("click", () => {
-    startButtonPressed(taskItem);
-    // taskItem.style.backgroundColor = "#c2e8ce";
+  statusButton.addEventListener("click", () => {
+    switch (task.status) {
+      case "created":
+        startButtonPressed(taskLiElement);
+        break;
+      case "started":
+        stopButtonPressed(taskLiElement);
+        break;
+      default:
+        break;
+    }
   });
-  stopButton.addEventListener("click", () => {
-    stoptButtonPressed(taskItem);
+
+  deleteButton.addEventListener("click", () => {
+    tasks.splice(index, 1);
+    showAllTasks(tasks);
   });
-  // bttContainer.appendChild(deleteButton);
-  bttContainer.appendChild(startButton);
-  bttContainer.appendChild(stopButton);
-  taskItem.appendChild(bttContainer);
-  // deleteButton.addEventListener("click", () => {
-  //   tasks.splice(index, 1);
-  //   showAllTasks(tasks);
-  // });
-  document.getElementById("tasksList").appendChild(taskItem);
+
+  if (task.status !== "completed") {
+    bttContainer.appendChild(statusButton);
+  }
+  bttContainer.appendChild(deleteButton);
+  taskLiElement.appendChild(bttContainer);
+
+  document.getElementById("tasksList").appendChild(taskLiElement);
 }
 
 function showAllTasks(tasks) {
-  console.log(tasks.length);
   document.getElementById("tasksList").innerHTML = "";
 
   if (tasks.length !== 0) {
@@ -51,14 +59,14 @@ function showAllTasks(tasks) {
   document.getElementById("tasksList").appendChild(displayContainer);
 }
 
-function startButtonPressed(taskItem) {
+function startButtonPressed(taskLiElement) {
   console.log("Start button");
-  taskItem.style.backgroundColor = "#c2e8ce";
+  taskLiElement.style.backgroundColor = "#c2e8ce";
 }
 
-function stoptButtonPressed(taskItem) {
+function stopButtonPressed(taskLiElement) {
   console.log("Stop button");
-  taskItem.style.backgroundColor = "#758694";
+  taskLiElement.style.backgroundColor = "#758694";
 }
 
 export { showAllTasks };

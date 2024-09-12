@@ -4,7 +4,11 @@ function createNewTask(tasks) {
     document.getElementById("newTaskInput").value = "";
     return;
   }
-  tasks.push(newPlanValue);
+  let newTaskObject = {
+    title: newPlanValue,
+    status: "created",
+  };
+  tasks.push(newTaskObject);
   document.getElementById("newTaskInput").value = "";
 }
 

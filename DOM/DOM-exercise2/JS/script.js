@@ -1,7 +1,20 @@
 import { showAllTasks } from "./taskHelpers.js";
 import { createNewTask } from "./createNewTask.js";
 
-const tasks = [];
+const tasks = [
+  {
+    title: "Task1",
+    status: "created",
+  },
+  {
+    title: "Task2",
+    status: "started",
+  },
+  {
+    title: "Task3",
+    status: "completed",
+  },
+];
 
 showAllTasks(tasks);
 
