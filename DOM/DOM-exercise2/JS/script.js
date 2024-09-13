@@ -21,10 +21,11 @@ const tasks = [
   {
     title: "Task6",
     status: "created"
-  }
+  },
+  {
     title: "Task5",
     status: "started",
-  },
+  }
 ];
 
 showAllTasks(tasks);
