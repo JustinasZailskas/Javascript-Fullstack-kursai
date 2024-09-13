@@ -20,25 +20,27 @@ function showTask(task, index, tasks) {
   statusButton.addEventListener("click", () => {
     switch (task.status) {
       case "created":
-        console.log(index);
-
+        console.log("Indeksas ", index);
         startButtonPressed(taskLiElement, tasks, index);
+        statusButton.textContent = "Blaaa";
+        showAllTasks(tasks);
         break;
       case "started":
         console.log(index);
-        stopButtonPressed(taskLiElement);
+        stopButtonPressed(taskLiElement, tasks, index);
+        showAllTasks(tasks);
         break;
       default:
         break;
     }
   });
-
   deleteButton.addEventListener("click", () => {
     tasks.splice(index, 1);
     showAllTasks(tasks);
   });
 
   if (task.status !== "completed") {
+    console.log(statusButton);
     bttContainer.appendChild(statusButton);
   }
   bttContainer.appendChild(deleteButton);
@@ -51,6 +53,7 @@ function showAllTasks(tasks) {
   document.getElementById("tasksList").innerHTML = "";
 
   if (tasks.length !== 0) {
+    console.log(tasks);
     tasks.forEach((task, index) => {
       showTask(task, index, tasks);
     });
@@ -65,13 +68,13 @@ function showAllTasks(tasks) {
 
 function startButtonPressed(taskLiElement, tasks, index) {
   console.log("Start button");
-  updateTaskStatus(tasks, index, "stop");
-  showAllTasks(tasks);
   taskLiElement.style.backgroundColor = "#c2e8ce";
+  updateTaskStatus(tasks, index, "started");
 }
 
-function stopButtonPressed(taskLiElement) {
+function stopButtonPressed(taskLiElement, tasks, index) {
   console.log("Stop button");
+  updateTaskStatus(tasks, index, "completed");
   taskLiElement.style.backgroundColor = "#758694";
 }
 
