@@ -1,4 +1,5 @@
 import { getButtonLabel } from "./helpers/statusButtonsHelpers.js";
+import { updateTaskStatus } from "./createNewTask.js";
 
 function showTask(task, index, tasks) {
   const taskLiElement = document.createElement("li");
@@ -19,9 +20,12 @@ function showTask(task, index, tasks) {
   statusButton.addEventListener("click", () => {
     switch (task.status) {
       case "created":
-        startButtonPressed(taskLiElement);
+        console.log(index);
+
+        startButtonPressed(taskLiElement, tasks, index);
         break;
       case "started":
+        console.log(index);
         stopButtonPressed(taskLiElement);
         break;
       default:
@@ -59,8 +63,10 @@ function showAllTasks(tasks) {
   document.getElementById("tasksList").appendChild(displayContainer);
 }
 
-function startButtonPressed(taskLiElement) {
+function startButtonPressed(taskLiElement, tasks, index) {
   console.log("Start button");
+  updateTaskStatus(tasks, index, "stop");
+  showAllTasks(tasks);
   taskLiElement.style.backgroundColor = "#c2e8ce";
 }
 
