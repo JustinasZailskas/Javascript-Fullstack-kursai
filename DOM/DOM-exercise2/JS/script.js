@@ -18,6 +18,10 @@ const tasks = [
     title: "Task4",
     status: "completed",
   },
+  {
+    title: "Task5",
+    status: "started",
+  },
 ];
 
 showAllTasks(tasks);
