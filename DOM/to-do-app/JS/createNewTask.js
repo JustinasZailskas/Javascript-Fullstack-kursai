@@ -6,7 +6,9 @@ function createNewTask(tasks) {
     document.getElementById("newTaskInput").value = "";
     return;
   }
+
   let newTaskObject = {
+    id: tasks.length + 1,
     title: newPlanValue,
     status: "created",
   };
@@ -14,7 +16,8 @@ function createNewTask(tasks) {
   document.getElementById("newTaskInput").value = "";
 }
 
-function updateTaskStatus(tasks, taskIndex, taskStatus) {
+function updateTaskStatus(tasks, taskID, taskStatus) {
+  let taskIndex = tasks.findIndex((task) => task.id === taskID);
   const newObj = { ...tasks[taskIndex], status: getTaskNewStatus(taskStatus) };
   tasks.splice(taskIndex, 1, newObj);
 }

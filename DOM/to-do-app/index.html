@@ -8,10 +8,17 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Mano planai</h1>
+    <h1>Insert task item</h1>
     <input type="text" id="newTaskInput" />
-    <button id="addButton">Prideti</button>
-    <h6>Mano planas</h6>
+    <button id="addButton">Create</button>
+    <h6>Tasks list</h6>
+    <label>Filter by status</label>
+    <select name="filterByStatus" id="filterByStatus">
+      <option value="all">All</option>
+      <option value="created">Created</option>
+      <option value="started">Started</option>
+      <option value="completed">Completed</option>
+    </select>
     <ul id="tasksList"></ul>
     <script type="module" src="./JS/script.js"></script>
   </body>

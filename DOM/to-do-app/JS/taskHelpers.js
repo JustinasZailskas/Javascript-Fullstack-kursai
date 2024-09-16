@@ -1,7 +1,8 @@
 import { getButtonLabel } from "./helpers/statusButtonsHelpers.js";
 import { updateTaskStatus } from "./createNewTask.js";
+import { filterStatus } from "./script.js";
 
-function showTask(task, index, tasks) {
+function showTask(task, tasks) {
   const taskLiElement = document.createElement("li");
   const bttContainer = document.createElement("div");
   const deleteButton = document.createElement("button");
@@ -24,11 +25,13 @@ function showTask(task, index, tasks) {
   }
 
   statusButton.addEventListener("click", () => {
-    updateTaskStatus(tasks, index, task.status);
+    updateTaskStatus(tasks, task.id, task.status);
     showAllTasks(tasks);
   });
   deleteButton.addEventListener("click", () => {
-    tasks.splice(index, 1);
+    let taskIndex = tasks.findIndex((x) => x.id === task.id);
+
+    tasks.splice(taskIndex, 1);
     showAllTasks(tasks);
   });
 
@@ -45,9 +48,14 @@ function showAllTasks(tasks) {
   document.getElementById("tasksList").innerHTML = "";
 
   if (tasks.length !== 0) {
-    tasks.forEach((task, index) => {
-      showTask(task, index, tasks);
-    });
+    tasks
+      .filter((task) => {
+        if (filterStatus === "all" || !filterStatus) return true;
+        return task.status === filterStatus;
+      })
+      .forEach((task) => {
+        showTask(task, tasks);
+      });
     return;
   }
 
