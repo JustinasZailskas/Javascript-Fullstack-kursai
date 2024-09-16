@@ -1,4 +1,4 @@
-import { getButtonLabel } from "./helpers/statusButtonsHelpers.js";
+import { getTaskNewStatus } from "./helpers/statusButtonsHelpers.js";
 
 function createNewTask(tasks) {
   const newPlanValue = document.getElementById("newTaskInput").value;
@@ -15,12 +15,7 @@ function createNewTask(tasks) {
 }
 
 function updateTaskStatus(tasks, taskIndex, taskStatus) {
-  const updatedObj = tasks[taskIndex];
-  const newObj = {
-    title: updatedObj.title,
-    status: taskStatus,
-  };
-
+  const newObj = { ...tasks[taskIndex], status: getTaskNewStatus(taskStatus) };
   tasks.splice(taskIndex, 1, newObj);
 }
 

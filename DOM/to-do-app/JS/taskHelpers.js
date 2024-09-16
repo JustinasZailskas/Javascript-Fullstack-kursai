@@ -17,19 +17,15 @@ function showTask(task, index, tasks) {
   bttContainer.classList.add("buttonContainer");
   //append child section
 
+  if (task.status === "started") {
+    taskLiElement.classList.add("task--start");
+  } else if (task.status === "completed") {
+    taskLiElement.classList.add("task--stop");
+  }
+
   statusButton.addEventListener("click", () => {
-    switch (task.status) {
-      case "created":
-        startButtonPressed(taskLiElement, tasks, index);
-        showAllTasks(tasks);
-        break;
-      case "started":
-        stopButtonPressed(taskLiElement, tasks, index);
-        showAllTasks(tasks);
-        break;
-      default:
-        break;
-    }
+    updateTaskStatus(tasks, index, task.status);
+    showAllTasks(tasks);
   });
   deleteButton.addEventListener("click", () => {
     tasks.splice(index, 1);
@@ -59,18 +55,6 @@ function showAllTasks(tasks) {
   displayContainer.textContent = "There is no tasks created";
   displayContainer.classList.add("displayMessage");
   document.getElementById("tasksList").appendChild(displayContainer);
-}
-
-function startButtonPressed(taskLiElement, tasks, index) {
-  updateTaskStatus(tasks, index, "started");
-  taskLiElement.classList.remove("task");
-  taskLiElement.classList.add("startBtn");
-  // taskLiElement.style.backgroundColor = "#c2e8ce";
-}
-
-function stopButtonPressed(taskLiElement, tasks, index) {
-  updateTaskStatus(tasks, index, "completed");
-  taskLiElement.style.backgroundColor = "#758694";
 }
 
 export { showAllTasks };

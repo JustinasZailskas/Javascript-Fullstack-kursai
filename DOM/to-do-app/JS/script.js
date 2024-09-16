@@ -19,13 +19,13 @@ const tasks = [
     status: "completed",
   },
   {
-    title: "Task6",
-    status: "created"
+    title: "Task5",
+    status: "created",
   },
   {
-    title: "Task5",
+    title: "Task6",
     status: "started",
-  }
+  },
 ];
 
 showAllTasks(tasks);

@@ -20,14 +20,15 @@ button {
   background-color: #f1f3c2;
   border-radius: 5px;
 }
+.task--start {
+  background-color: #b7e5b4;
+}
+.task--stop {
+  background-color: #c7c8cc;
+}
 
 .task .startBtn {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem;
-  color: black;
   background-color: #c2e8ce;
-  border-radius: 5px;
 }
 
 .task .stopBtn {

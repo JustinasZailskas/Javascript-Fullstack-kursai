@@ -9,4 +9,15 @@ function getButtonLabel(status) {
   }
 }
 
-export { getButtonLabel };
+function getTaskNewStatus(status) {
+  switch (status) {
+    case "created":
+      return "started";
+    case "started":
+      return "completed";
+    default:
+      return;
+  }
+}
+
+export { getButtonLabel, getTaskNewStatus };
