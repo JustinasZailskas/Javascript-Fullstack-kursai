@@ -1,8 +1,12 @@
-import { getButtonLabel } from "./helpers/statusButtonsHelpers.js";
+import {
+  getButtonLabel,
+  getTaskNewStatus,
+} from "./helpers/statusButtonsHelpers.js";
 import { updateTaskStatus } from "./createNewTask.js";
 import { filterStatus } from "./script.js";
+import { data } from "./helpers/data.js";
 
-function showTask(task, tasks) {
+function showTask(task) {
   const taskLiElement = document.createElement("li");
   const bttContainer = document.createElement("div");
   const deleteButton = document.createElement("button");
@@ -25,14 +29,12 @@ function showTask(task, tasks) {
   }
 
   statusButton.addEventListener("click", () => {
-    updateTaskStatus(tasks, task.id, task.status);
-    showAllTasks(tasks);
+    data.changeTaskStatus(task.id, getTaskNewStatus(task.status));
+    showAllTasks();
   });
   deleteButton.addEventListener("click", () => {
-    let taskIndex = tasks.findIndex((x) => x.id === task.id);
-
-    tasks.splice(taskIndex, 1);
-    showAllTasks(tasks);
+    data.deleteTask(task.id);
+    showAllTasks();
   });
 
   if (task.status !== "completed") {
@@ -44,17 +46,17 @@ function showTask(task, tasks) {
   document.getElementById("tasksList").appendChild(taskLiElement);
 }
 
-function showAllTasks(tasks) {
+function showAllTasks() {
   document.getElementById("tasksList").innerHTML = "";
 
-  if (tasks.length !== 0) {
-    tasks
+  if (data.tasks.length !== 0) {
+    data.tasks
       .filter((task) => {
         if (filterStatus === "all" || !filterStatus) return true;
         return task.status === filterStatus;
       })
       .forEach((task) => {
-        showTask(task, tasks);
+        showTask(task);
       });
     return;
   }

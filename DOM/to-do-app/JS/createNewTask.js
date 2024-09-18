@@ -8,7 +8,7 @@ function createNewTask(tasks) {
   }
 
   let newTaskObject = {
-    id: tasks.length + 1,
+    id: crypto.randomUUID(),
     title: newPlanValue,
     status: "created",
   };
