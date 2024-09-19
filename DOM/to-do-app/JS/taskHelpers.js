@@ -2,7 +2,6 @@ import {
   getButtonLabel,
   getTaskNewStatus,
 } from "./helpers/statusButtonsHelpers.js";
-import { updateTaskStatus } from "./createNewTask.js";
 import { filterStatus } from "./script.js";
 import { data } from "./helpers/data.js";
 

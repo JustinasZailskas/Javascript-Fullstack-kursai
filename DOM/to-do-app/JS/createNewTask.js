@@ -1,25 +1,13 @@
-import { getTaskNewStatus } from "./helpers/statusButtonsHelpers.js";
+import { data } from "./helpers/data.js";
 
-function createNewTask(tasks) {
-  const newPlanValue = document.getElementById("newTaskInput").value;
-  if (!newPlanValue.trim().length) {
+function createNewTask() {
+  const newTaskTitle = document.getElementById("newTaskInput").value;
+  if (!newTaskTitle.trim().length) {
     document.getElementById("newTaskInput").value = "";
     return;
   }
-
-  let newTaskObject = {
-    id: crypto.randomUUID(),
-    title: newPlanValue,
-    status: "created",
-  };
-  tasks.push(newTaskObject);
+  data.createTask(newTaskTitle);
   document.getElementById("newTaskInput").value = "";
 }
 
-function updateTaskStatus(tasks, taskID, taskStatus) {
-  let taskIndex = tasks.findIndex((task) => task.id === taskID);
-  const newObj = { ...tasks[taskIndex], status: getTaskNewStatus(taskStatus) };
-  tasks.splice(taskIndex, 1, newObj);
-}
-
-export { createNewTask, updateTaskStatus };
+export { createNewTask };

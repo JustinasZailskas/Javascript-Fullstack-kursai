@@ -48,4 +48,13 @@ export const data = {
       return task;
     });
   },
+  createTask: function (title) {
+    let newTask = {
+      id: crypto.randomUUID(),
+      title: title,
+      status: "created",
+    };
+    // this.tasks.push(newTask);
+    this.tasks = [...this.tasks, newTask];
+  },
 };

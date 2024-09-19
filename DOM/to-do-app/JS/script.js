@@ -6,13 +6,13 @@ export let filterStatus = "all";
 showAllTasks(data.tasks);
 
 document.getElementById("addButton").addEventListener("click", () => {
-  createNewTask(data.tasks);
+  createNewTask();
   showAllTasks(data.tasks);
 });
 
 document.getElementById("newTaskInput").addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
-    createNewTask(data.tasks);
+    createNewTask();
     showAllTasks(data.tasks);
   }
 });
