@@ -3,6 +3,7 @@ import { createNewTask } from "./createNewTask.js";
 import { data } from "./helpers/data.js";
 
 export let filterStatus = "all";
+
 showAllTasks(data.tasks);
 
 document.getElementById("addButton").addEventListener("click", () => {
