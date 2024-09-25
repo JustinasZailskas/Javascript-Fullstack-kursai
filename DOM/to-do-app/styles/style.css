@@ -12,6 +12,23 @@ button {
   background-color: #e8b86d;
 }
 
+#user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#user img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  margin: 0;
+}
+#user h5 {
+  margin: 10px 0;
+}
+
 .task {
   display: flex;
   justify-content: space-between;

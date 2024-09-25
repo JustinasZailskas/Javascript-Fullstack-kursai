@@ -22,3 +22,14 @@ document.getElementById("filterByStatus").addEventListener("change", () => {
   filterStatus = document.getElementById("filterByStatus").value;
   showAllTasks(data.tasks);
 });
+
+fetch("https://jsonplaceholder.typicode.com/users/4")
+  .then((response) => {
+    return response.json();
+  })
+  .then((user) => {
+    console.log(user);
+    const username = document.createElement("h5");
+    username.textContent = user.username;
+    document.getElementById("user").appendChild(username);
+  });

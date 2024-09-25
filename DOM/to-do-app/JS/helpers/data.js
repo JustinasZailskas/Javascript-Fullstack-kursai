@@ -36,7 +36,6 @@ export const data = {
   getTasks: function () {
     let response = localStorage.getItem("tasks");
     let data = JSON.parse(response);
-    console.log(data);
     if (data && Array.isArray(data)) {
       this.tasks = data;
     }
