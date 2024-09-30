@@ -4,7 +4,6 @@ import { data } from "./helpers/data.js";
 import { getUserInfo } from "./services/getUser.js";
 
 export let filterStatus = "all";
-export let filterByTitle = "";
 
 showAllTasks(data.tasks);
 
@@ -23,17 +22,6 @@ document.getElementById("newTaskInput").addEventListener("keyup", (event) => {
 document.getElementById("filterByStatus").addEventListener("change", () => {
   filterStatus = document.getElementById("filterByStatus").value;
   showAllTasks(data.tasks);
-});
-
-document.getElementById("searchButton").addEventListener("click", () => {
-  createNewTask();
-  showAllTasks(data.tasks);
-});
-document.getElementById("filterByTitle").addEventListener("keyup", (event) => {
-  filterByTitle = document.getElementById("filterByTitle").value;
-  if (event.key === "Enter") {
-    showAllTasks(data.tasks);
-  }
 });
 
 // fetch("https://jsonplaceholder.typicode.com/users/4")
