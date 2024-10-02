@@ -55,8 +55,8 @@ function showAllTasks() {
         return task.status === filterStatus;
       })
       .filter((task) => {
-        if (filterByTitle === "" || !filterByTitle) return true;
-        return task.title.toLowerCase() === filterByTitle.toLowerCase();
+        if (!filterByTitle) return true;
+        return task.title.toLowerCase().includes(filterByTitle);
       })
       .forEach((task) => {
         showTask(task);
