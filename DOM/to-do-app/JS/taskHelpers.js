@@ -2,7 +2,7 @@ import {
   getButtonLabel,
   getTaskNewStatus,
 } from "./helpers/statusButtonsHelpers.js";
-import { filterStatus } from "./script.js";
+import { filterStatus, filterByTitle } from "./script.js";
 import { data } from "./helpers/data.js";
 
 function showTask(task) {
@@ -53,6 +53,10 @@ function showAllTasks() {
       .filter((task) => {
         if (filterStatus === "all" || !filterStatus) return true;
         return task.status === filterStatus;
+      })
+      .filter((task) => {
+        if (!filterByTitle) return true;
+        return task.title.toLowerCase().includes(filterByTitle);
       })
       .forEach((task) => {
         showTask(task);
