@@ -5,19 +5,45 @@ import {
 import { filterStatus, filterByTitle } from "./script.js";
 import { data } from "./helpers/data.js";
 
+function getTasksCreatedDate(time) {
+  let monthName = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let date = new Date(time);
+  let year = date.getFullYear();
+  let month = date.getMonth();
+  let day = date.getDate();
+
+  return "Created at: " + year + " " + monthName[month] + " " + day;
+}
+
 function showTask(task) {
   const taskLiElement = document.createElement("li");
+  const timeElement = document.createElement("p");
   const bttContainer = document.createElement("div");
   const deleteButton = document.createElement("button");
   const statusButton = document.createElement("button");
 
   //text contenct
   taskLiElement.textContent = task.title;
+  timeElement.textContent = getTasksCreatedDate(task.createdAt);
   deleteButton.textContent = "Delete";
   statusButton.textContent = getButtonLabel(task.status);
 
   //styles
   taskLiElement.classList.add("task");
+  timeElement.classList.add("timeContainer");
   bttContainer.classList.add("buttonContainer");
   //append child section
 
@@ -40,6 +66,7 @@ function showTask(task) {
     bttContainer.appendChild(statusButton);
   }
   bttContainer.appendChild(deleteButton);
+  taskLiElement.appendChild(timeElement);
   taskLiElement.appendChild(bttContainer);
 
   document.getElementById("tasksList").appendChild(taskLiElement);
