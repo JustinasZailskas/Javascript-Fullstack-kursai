@@ -29,7 +29,7 @@ document.getElementById("searchButton").addEventListener("click", () => {
   showAllTasks();
 });
 document.getElementById("filterByTitle").addEventListener("input", () => {
-  filterByTitle = document.getElementById("filterByTitle").value;
+  filterByTitle = document.getElementById("filterByTitle").value.toLowerCase();
   showAllTasks();
 });
 
