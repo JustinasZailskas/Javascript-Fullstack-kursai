@@ -5,6 +5,7 @@ ul {
   box-shadow: 0 0 5px #cedf9f;
   border: 1px solid #cedf9f;
   border-radius: 5px;
+  list-style-type: none;
 }
 
 button {
@@ -29,6 +30,12 @@ button {
   margin: 10px 0;
 }
 
+#tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .task {
   display: flex;
   justify-content: space-between;
@@ -44,12 +51,9 @@ button {
   background-color: #c7c8cc;
 }
 
-.task .startBtn {
-  background-color: #c2e8ce;
-}
-
-.task .stopBtn {
-  background-color: #758694;
+.taskLiElemContainer li {
+  margin: 0;
+  line-height: 20px;
 }
 
 .buttonContainer {
@@ -63,6 +67,6 @@ button {
 }
 
 .timeContainer {
-  margin: auto;
+  margin: 0;
   font-size: 1rem;
 }

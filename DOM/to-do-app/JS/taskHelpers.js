@@ -29,6 +29,8 @@ function getTasksCreatedDate(time) {
 }
 
 function showTask(task) {
+  const taskLiContainer = document.createElement("div");
+  const taskLiElementContainer = document.createElement("div");
   const taskLiElement = document.createElement("li");
   const timeElement = document.createElement("p");
   const bttContainer = document.createElement("div");
@@ -42,15 +44,17 @@ function showTask(task) {
   statusButton.textContent = getButtonLabel(task.status);
 
   //styles
-  taskLiElement.classList.add("task");
+  taskLiContainer.classList.add("task");
+  taskLiElementContainer.classList.add("taskLiElemContainer");
+  taskLiElement.classList.add();
   timeElement.classList.add("timeContainer");
   bttContainer.classList.add("buttonContainer");
   //append child section
 
   if (task.status === "started") {
-    taskLiElement.classList.add("task--start");
+    taskLiContainer.classList.add("task--start");
   } else if (task.status === "completed") {
-    taskLiElement.classList.add("task--stop");
+    taskLiContainer.classList.add("task--stop");
   }
 
   statusButton.addEventListener("click", () => {
@@ -66,10 +70,13 @@ function showTask(task) {
     bttContainer.appendChild(statusButton);
   }
   bttContainer.appendChild(deleteButton);
-  taskLiElement.appendChild(timeElement);
-  taskLiElement.appendChild(bttContainer);
+  taskLiElementContainer.appendChild(taskLiElement);
+  taskLiElementContainer.appendChild(timeElement);
+  taskLiContainer.appendChild(taskLiElementContainer);
+  // taskLiElement.appendChild(timeElement);
+  taskLiContainer.appendChild(bttContainer);
 
-  document.getElementById("tasksList").appendChild(taskLiElement);
+  document.getElementById("tasksList").appendChild(taskLiContainer);
 }
 
 function showAllTasks() {
