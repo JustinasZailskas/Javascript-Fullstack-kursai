@@ -2,7 +2,7 @@ import {
   getButtonLabel,
   getTaskNewStatus,
 } from "./helpers/statusButtonsHelpers.js";
-import { filterStatus, filterByTitle } from "./script.js";
+import { filterStatus, filterByTitle, sortByDate } from "./script.js";
 import { data } from "./helpers/data.js";
 
 function getTasksCreatedDate(time) {
@@ -91,6 +91,12 @@ function showAllTasks() {
       .filter((task) => {
         if (!filterByTitle) return true;
         return task.title.toLowerCase().includes(filterByTitle);
+      })
+      .sort((a, b) => {
+        if (sortByDate === "old" || !sortByDate) {
+          return a.createdAt - b.createdAt;
+        }
+        return b.createdAt - a.createdAt;
       })
       .forEach((task) => {
         showTask(task);
