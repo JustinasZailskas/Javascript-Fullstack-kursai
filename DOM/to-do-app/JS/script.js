@@ -4,6 +4,7 @@ import { getUserInfo } from "./services/getUser.js";
 
 export let filterStatus = "all";
 export let filterByTitle = "";
+export let sortByDate = "old";
 
 showAllTasks();
 
@@ -28,8 +29,14 @@ document.getElementById("searchButton").addEventListener("click", () => {
   createNewTask();
   showAllTasks();
 });
+
 document.getElementById("filterByTitle").addEventListener("input", () => {
   filterByTitle = document.getElementById("filterByTitle").value.toLowerCase();
+  showAllTasks();
+});
+
+document.getElementById("sortByDate").addEventListener("change", () => {
+  sortByDate = document.getElementById("sortByDate").value;
   showAllTasks();
 });
 

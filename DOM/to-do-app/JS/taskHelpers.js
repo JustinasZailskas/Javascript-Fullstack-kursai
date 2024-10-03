@@ -2,29 +2,59 @@ import {
   getButtonLabel,
   getTaskNewStatus,
 } from "./helpers/statusButtonsHelpers.js";
-import { filterStatus, filterByTitle } from "./script.js";
+import { filterStatus, filterByTitle, sortByDate } from "./script.js";
 import { data } from "./helpers/data.js";
 
+function getTasksCreatedDate(time) {
+  let monthName = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let date = new Date(time);
+  let year = date.getFullYear();
+  let month = date.getMonth();
+  let day = date.getDate();
+
+  return "Created at: " + year + " " + monthName[month] + " " + day;
+}
+
 function showTask(task) {
+  const taskLiContainer = document.createElement("div");
+  const taskLiElementContainer = document.createElement("div");
   const taskLiElement = document.createElement("li");
+  const timeElement = document.createElement("p");
   const bttContainer = document.createElement("div");
   const deleteButton = document.createElement("button");
   const statusButton = document.createElement("button");
 
   //text contenct
   taskLiElement.textContent = task.title;
+  timeElement.textContent = getTasksCreatedDate(task.createdAt);
   deleteButton.textContent = "Delete";
   statusButton.textContent = getButtonLabel(task.status);
 
   //styles
-  taskLiElement.classList.add("task");
+  taskLiContainer.classList.add("task");
+  taskLiElementContainer.classList.add("taskLiElemContainer");
+  taskLiElement.classList.add();
+  timeElement.classList.add("timeContainer");
   bttContainer.classList.add("buttonContainer");
   //append child section
 
   if (task.status === "started") {
-    taskLiElement.classList.add("task--start");
+    taskLiContainer.classList.add("task--start");
   } else if (task.status === "completed") {
-    taskLiElement.classList.add("task--stop");
+    taskLiContainer.classList.add("task--stop");
   }
 
   statusButton.addEventListener("click", () => {
@@ -40,9 +70,13 @@ function showTask(task) {
     bttContainer.appendChild(statusButton);
   }
   bttContainer.appendChild(deleteButton);
-  taskLiElement.appendChild(bttContainer);
+  taskLiElementContainer.appendChild(taskLiElement);
+  taskLiElementContainer.appendChild(timeElement);
+  taskLiContainer.appendChild(taskLiElementContainer);
+  // taskLiElement.appendChild(timeElement);
+  taskLiContainer.appendChild(bttContainer);
 
-  document.getElementById("tasksList").appendChild(taskLiElement);
+  document.getElementById("tasksList").appendChild(taskLiContainer);
 }
 
 function showAllTasks() {
@@ -57,6 +91,14 @@ function showAllTasks() {
       .filter((task) => {
         if (!filterByTitle) return true;
         return task.title.toLowerCase().includes(filterByTitle);
+      })
+      .sort((a, b) => {
+        if (sortByDate === "old" || !sortByDate) {
+          return a.createdAt - b.createdAt;
+        }
+        if (sortByDate === "new" || !sortByDate) {
+          return b.createdAt - a.createdAt;
+        }
       })
       .forEach((task) => {
         showTask(task);

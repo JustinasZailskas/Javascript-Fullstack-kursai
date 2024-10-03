@@ -65,8 +65,8 @@ export const data = {
       id: crypto.randomUUID(),
       title: title,
       status: "created",
+      createdAt: Date.now(),
     };
-    // this.tasks.push(newTask);
     this.tasks = [...this.tasks, newTask];
     this.setTasks();
   },
