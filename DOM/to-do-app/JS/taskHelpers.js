@@ -96,7 +96,9 @@ function showAllTasks() {
         if (sortByDate === "old" || !sortByDate) {
           return a.createdAt - b.createdAt;
         }
-        return b.createdAt - a.createdAt;
+        if (sortByDate === "new" || !sortByDate) {
+          return b.createdAt - a.createdAt;
+        }
       })
       .forEach((task) => {
         showTask(task);
