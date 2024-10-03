@@ -37,7 +37,6 @@ document.getElementById("filterByTitle").addEventListener("input", () => {
 
 document.getElementById("sortByDate").addEventListener("change", () => {
   sortByDate = document.getElementById("sortByDate").value;
-  console.log(sortByDate);
   showAllTasks();
 });
 
