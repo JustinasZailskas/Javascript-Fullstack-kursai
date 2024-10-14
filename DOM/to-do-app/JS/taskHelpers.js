@@ -3,7 +3,8 @@ import {
   getTaskNewStatus,
 } from "./helpers/statusButtonsHelpers.js";
 import { filterStatus, filterByTitle, sortByDate } from "./script.js";
-import { data } from "./helpers/data.js";
+import { Data } from "./helpers/data.js";
+let data = new Data();
 
 function getTasksCreatedDate(time) {
   let monthName = [
