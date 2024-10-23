@@ -1,0 +1,10 @@
+<header>
+  <ul>
+    <% menu.forEach(element => { %> <% const isActive = element.href === url ?
+    'active' : ''; %>
+    <li class="<%=isActive%>">
+      <a href="<%=element.href %>"><%=element.title %></a>
+    </li>
+    <%}); %>
+  </ul>
+</header>
