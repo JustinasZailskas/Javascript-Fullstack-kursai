@@ -1,1 +1,39 @@
 <%- include('partials/header.ejs', {menu: menu, url}) %>
+<div>
+  <form action="/contact" method="POST">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name.." />
+
+    <label for="lname">Last Name</label>
+    <input
+      type="text"
+      id="lname"
+      name="lastname"
+      placeholder="Your last name.."
+    />
+    <label for="femail">Email</label>
+    <input
+      type="email"
+      id="femail"
+      name="email"
+      placeholder="Insert your name"
+    />
+    <label for="service">Services</label>
+    <select id="service" name="service">
+      <option value="design">Create Web Page design</option>
+      <option value="testing">Website testing</option>
+      <option value="programming">Programming website</option>
+      <option value="consultation">Consultation</option>
+    </select>
+
+    <label for="subject">Comment</label>
+    <textarea
+      id="subject"
+      name="subject"
+      placeholder="Write something.."
+      style="height: 50px"
+    ></textarea>
+
+    <input type="submit" value="Submit" />
+  </form>
+</div>
