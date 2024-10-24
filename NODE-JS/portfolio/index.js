@@ -1,6 +1,6 @@
 const express = require("express");
-const routers = require("./routers");
-const projects = require("./data.json");
+const routers = require("./src/routers.json");
+const projects = require("./src/data.json");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const path = require("path");
@@ -12,8 +12,9 @@ const filePath = path.join(directoryPath, "contactData.json");
 
 app.listen(3000);
 app.set("view engine", "ejs");
-app.use(express.static(__dirname));
+// app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   res.render("index");
