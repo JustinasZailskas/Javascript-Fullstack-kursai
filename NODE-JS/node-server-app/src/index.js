@@ -3,17 +3,29 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const { title } = require("process");
-
 const app = express();
+const Todo = require("./models/todo");
+const mongoose = require("mongoose");
+const { title } = require("process");
 
 const fileDirectory = __dirname + "/data";
 const filePath = path.join(fileDirectory, "data.json");
+const uri = "mongodb://localhost";
 
 app.listen(3000);
 app.set("view engine", "ejs");
 app.use(express.static(__dirname));
 app.use(express.json());
+
+async function run() {
+  try {
+    await mongoose.connect(uri);
+    console.log("Prisijungta prie duomenu bazes");
+  } catch (error) {
+    console.error("Klaida prisijungiant prie duomenu bazes", error);
+  }
+}
+run().catch(console.dir);
 
 app.get("/todo", (req, res) => {
   let masyvas = [];
