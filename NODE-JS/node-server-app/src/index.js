@@ -10,7 +10,7 @@ const { title } = require("process");
 
 const fileDirectory = __dirname + "/data";
 const filePath = path.join(fileDirectory, "data.json");
-const uri = "mongodb://localhost";
+const uri = "mongodb://localhost/todoApp";
 
 app.listen(3000);
 app.set("view engine", "ejs");
@@ -27,110 +27,136 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.get("/todo", (req, res) => {
-  let masyvas = [];
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      res.json({ error: "Klaida" });
-      return;
-    }
-    masyvas = JSON.parse(data);
+app.get("/todo", async (req, res) => {
+  try {
+    const masyvas = await Todo.find({});
     res.json(masyvas);
-  });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
+  }
 });
 
-app.get("/todo/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    const masyvas = JSON.parse(data);
-    const elementas = masyvas.find((elementas) => elementas.id === id);
+app.get("/todo/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const elementas = await Todo.findById(id);
     if (!elementas) {
-      res.json({ error: "Elementas nerastas" });
-      return;
+      res.status(404).json({ message: "Toks elementas nerastas" });
     }
     res.json(elementas);
-  });
+  } catch (error) {
+    if (error.statusCode === 404 || error.kind === "ObjectId") {
+      res
+        .status(404)
+        .json({ error: "Toks elementas nerastas: " + error.toString() });
+    }
+    res
+      .status(500)
+      .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
+  }
 });
 
-app.post("/todo", (req, res) => {
-  const masyvas = JSON.parse(fs.readFileSync(filePath));
-  const title = req.body.title;
-  const author = req.body.author;
-  const status = req.body.status;
-  const id = masyvas.length + 1;
-  masyvas.push({ title, id, author, status });
-  fs.writeFileSync(filePath, JSON.stringify(masyvas), (err) => {
-    if (err) {
-      console.log(err);
+app.post("/todo", async (req, res) => {
+  try {
+    const { title, author, status } = req.body;
+    if (!title || !author || !status) {
+      res
+        .status(400)
+        .json({ error: "Uzpildykite visus laukelius: " + error.toString() }); //4xx klaidos yra kliento klaidos
+    }
+    const todo = new Todo({ title, author, status });
+    await todo.save();
+    res.json(todo);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
+  }
+});
+
+app.put("/todo/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const { title, author, status } = req.body;
+
+    const elementas = await Todo.findById(id);
+    if (!elementas) {
+      res
+        .status(404)
+        .json({ error: "Toks elementas nerastas, negalima atnaujinti" });
+    }
+
+    elementas.title = title;
+    elementas.author = author;
+    elementas.status = status;
+
+    await elementas.save();
+
+    res.json({ message: "Elementas atnaujintas" });
+  } catch (error) {
+    if (error.statusCode === 404 || error.kind === "ObjectId") {
+      res.status(404).json({ error: "Blogas identifikavimo kodas: " });
       return;
     }
-    res.json("Duomenys ivesti");
-  });
+    res
+      .status(500)
+      .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
+  }
 });
 
-app.put("/todo/:id", (req, res) => {
-  const masyvas = JSON.parse(fs.readFileSync(filePath));
-  const id = parseInt(req.params.id);
-  const { title, author, status } = req.body;
-  const elementoID = masyvas.findIndex((elementas) => elementas.id === id);
-  const atnaujintasElementas = {
-    title: title,
-    author: author,
-    status: status,
-  };
-  if (elementoID !== -1) {
-    masyvas[elementoID] = atnaujintasElementas;
-  } else {
-    res.json("Tokio elemento nera");
-  }
-  fs.writeFileSync(filePath, JSON.stringify(masyvas), (err) => {
-    if (err) {
-      console.log(err);
+app.patch("/todo/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const { title, author, status } = req.body;
+    const elementas = await Todo.findById(id);
+    console.log(elementas);
+    if (!elementas) {
+      res
+        .status(404)
+        .json({ error: "Toks elementas nerastas, negalima atnaujinti" });
     }
-  });
-  res.json({ error: "Elementas atnaujintas" });
-});
 
-app.patch("/todo/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const { title, author, status } = req.body;
-  const elementoID = masyvas.findIndex((elementas) => elementas.id === id);
-
-  if (elementoID === -1) {
-    res.json({ error: "Elementas nerastas" });
-  }
-  if (title !== undefined) {
-    masyvas[elementoID].title = title;
-  }
-  if (author !== undefined) {
-    masyvas[elementoID].author = author;
-  }
-  if (status !== undefined) {
-    masyvas[elementoID].status = status;
-  }
-  fs.writeFileSync(filePath, JSON.stringify(masyvas), (err) => {
-    if (err) {
-      console.log(err);
+    if (title !== undefined) {
+      elementas.title = title;
     }
-  });
-  res.json({ error: "Elementas dalinai atnaujintas" });
-});
+    if (author !== undefined) {
+      elementas.author = author;
+    }
+    if (status !== undefined) {
+      elementas.status = status;
+    }
+    await elementas.save();
 
-app.delete("/todo/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const masyvas = JSON.parse(fs.readFileSync(filePath));
-  const naujasMasyvas = masyvas.filter((elementas) => elementas.id !== id);
-  fs.writeFileSync(filePath, JSON.stringify(naujasMasyvas), (err) => {
-    if (err) {
-      console.log(err);
+    res.json({ message: "Elementas atnaujintas" });
+  } catch (error) {
+    if (error.statusCode === 404 || error.kind === "ObjectId") {
+      res.status(404).json({ error: "Blogas identifikavimo kodas: " });
       return;
     }
-  });
+    res
+      .status(500)
+      .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
+  }
+});
+
+app.delete("/todo/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const elementas = await Todo.findByIdAndDelete(id);
+    console.log(elementas);
+
+    if (!elementas) {
+      res.json({ error: "Elementas nerastas" });
+    }
+    res.json({ message: "Elementas yra istrintas" });
+  } catch (error) {
+    res.status(400).json({
+      error: "Elementas neistrintas, nes jis nerastas: " + error.toString(),
+    });
+  }
 });
 
 app.use((req, res) => {
