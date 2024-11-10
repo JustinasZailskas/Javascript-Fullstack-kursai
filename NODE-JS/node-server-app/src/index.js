@@ -17,6 +17,27 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname));
 app.use(express.json());
 
+let ALLOWED_ORIGINS = ["http://localhost:8080"];
+app.use((req, res, next) => {
+  let origin = req.headers.origin;
+  let theOrigin =
+    ALLOWED_ORIGINS.indexOf(origin) >= 0 ? origin : ALLOWED_ORIGINS[0];
+
+  res.header("Access-Control-Allow-Origin", theOrigin);
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Add all needed methods
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+
+  // Handle preflight requests
+  if (req.method === "OPTIONS") {
+    res.sendStatus(204); // No Content
+  } else {
+    next();
+  }
+});
+
 async function run() {
   try {
     await mongoose.connect(uri);
@@ -60,13 +81,13 @@ app.get("/todo/:id", async (req, res) => {
 
 app.post("/todo", async (req, res) => {
   try {
-    const { title, author, status } = req.body;
-    if (!title || !author || !status) {
+    const { title, author, status, createdAt } = req.body;
+    if (!title || !author || !status || !createdAt) {
       res
         .status(400)
         .json({ error: "Uzpildykite visus laukelius: " + error.toString() }); //4xx klaidos yra kliento klaidos
     }
-    const todo = new Todo({ title, author, status });
+    const todo = new Todo({ title, author, status, createdAt });
     await todo.save();
     res.json(todo);
   } catch (error) {
@@ -79,7 +100,7 @@ app.post("/todo", async (req, res) => {
 app.put("/todo/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    const { title, author, status } = req.body;
+    const { title, author, status, createdAt } = req.body;
 
     const elementas = await Todo.findById(id);
     if (!elementas) {
@@ -91,6 +112,7 @@ app.put("/todo/:id", async (req, res) => {
     elementas.title = title;
     elementas.author = author;
     elementas.status = status;
+    elementas.createdAt = createdAt;
 
     await elementas.save();
 
@@ -110,7 +132,7 @@ app.patch("/todo/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    const { title, author, status } = req.body;
+    const { title, author, status, createdAt } = req.body;
     const elementas = await Todo.findById(id);
     console.log(elementas);
     if (!elementas) {
@@ -127,6 +149,9 @@ app.patch("/todo/:id", async (req, res) => {
     }
     if (status !== undefined) {
       elementas.status = status;
+    }
+    if (createdAt !== undefined) {
+      elementas.createdAt = createdAt;
     }
     await elementas.save();
 
