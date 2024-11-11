@@ -1,13 +1,13 @@
 {
   "name": "node_server",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Tautvydas Dulskis",
+  "author": "author",
   "license": "ISC",
-  "description": "Mano programele",
+  "description": "Serveris",
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.1",
