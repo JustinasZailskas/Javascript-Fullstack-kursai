@@ -1,0 +1,17 @@
+{
+  "name": "drift-stats-server-app",
+  "version": "1.0.0",
+  "description": "Drifto statistikos projektas",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Justinas Zailskas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.1",
+    "node-cache": "^5.1.2"
+  }
+}
