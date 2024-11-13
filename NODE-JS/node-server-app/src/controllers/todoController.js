@@ -82,6 +82,23 @@ exports.updateTodo = async (req, res) => {
   }
 };
 
+exports.deleteTodo = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const elementas = await Todo.findByIdAndDelete(id);
+    console.log(elementas);
+
+    if (!elementas) {
+      res.json({ error: "Elementas nerastas" });
+    }
+    res.json({ message: "Elementas yra istrintas" });
+  } catch (error) {
+    res.status(400).json({
+      error: "Elementas neistrintas, nes jis nerastas: " + error.toString(),
+    });
+  }
+};
+
 //   app.patch("/todo/:id", async (req, res) => {
 //     const id = req.params.id;
 
@@ -120,18 +137,3 @@ exports.updateTodo = async (req, res) => {
 //         .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
 //     }
 //   });
-
-//   app.delete("/todo/:id", async (req, res) => {
-//     const id = req.params.id;
-//     try {
-//       const elementas = await Todo.findByIdAndDelete(id);
-//       console.log(elementas);
-
-//       if (!elementas) {
-//         res.json({ error: "Elementas nerastas" });
-//       }
-//       res.json({ message: "Elementas yra istrintas" });
-//     } catch (error) {
-//       res.status(400).json({
-//         error: "Elementas neistrintas, nes jis nerastas: " + error.toString(),
-//       });
