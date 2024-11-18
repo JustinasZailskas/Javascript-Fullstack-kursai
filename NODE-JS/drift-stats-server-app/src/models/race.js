@@ -5,6 +5,8 @@ const raceSchema = new mongoose.Schema({
   raceDate: { type: "string", required: true },
   city: { type: "string", required: true },
   seasonID: { type: "string", required: true },
+  judges: [{ type: mongoose.Schema.Types.ObjectId, ref: "judge" }],
+  organizerID: { type: mongoose.Schema.Types.ObjectId, ref: "organizer" },
 });
 
 const race = mongoose.model("Race", raceSchema, "race");
