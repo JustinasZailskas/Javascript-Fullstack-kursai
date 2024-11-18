@@ -1,20 +1,9 @@
 const Todo = require("../models/todo");
-const User = require("../models/user");
-const bcrypt = require("bcrypt");
 
 exports.getAllTodos = async (req, res) => {
-  const { email, password } = req.body;
   try {
-    const user = await User.findOne({ email });
-    if (user) {
-      const result = await bcrypt.compare(password, user.password);
-      if (result) {
-        const todoItems = await Todo.find({});
-        res.json(todoItems);
-      } else {
-        res.status(400).json({ error: "Neteisingas slaptazodis" });
-      }
-    }
+    const todoItems = await Todo.find({});
+    res.json(todoItems);
   } catch (error) {
     res
       .status(500)
