@@ -1,8 +1,9 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
-const authenticateUser = async (req, res, next) => {
-  const { email, password } = req.body;
+exports.login = async (req, res) => {
+  const { email, password } = req.body; //o gal headers naudoti
   if (!email || !password) {
     return res
       .status(400)
@@ -16,13 +17,16 @@ const authenticateUser = async (req, res, next) => {
         .status(401)
         .json({ error: "Neteisingi prisijungimo duomenys" });
     }
-    req.user = user;
-    next();
+    console.log("User id", user._id);
+    const token = jwt.sign({ userID: user._id }, "your-secret-key", {
+      expiresIn: "1h",
+    });
+    user.token = token;
+    await user.save();
+    res.status(200).json({ token });
   } catch (error) {
     res
       .status(500)
       .json({ error: "Autentifikavimo klaida: " + error.toString() });
   }
 };
-
-module.exports = authenticateUser;

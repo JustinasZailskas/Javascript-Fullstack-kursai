@@ -4,14 +4,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const todoRouter = require("./routes/todoRoutes");
+const authRouter = require("./routes/authRoutes");
 const Todo = require("./models/todo");
 const corsHandler = require("./middlewares/corsHandler");
 const connectToDatabase = require("./services/database");
+const auth = require("./middlewares/authMiddleware");
 
 connectToDatabase();
 app.use(corsHandler);
 app.use(express.json()); //Kodel si kodo eilute turi buti iterpta?
-app.use("/todo", todoRouter);
+app.use("/", authRouter);
+app.use("/todo", auth, todoRouter);
 
 // 404 klaidos tvarkymas neapibrėžtiems maršrutams
 app.use((req, res) => {
