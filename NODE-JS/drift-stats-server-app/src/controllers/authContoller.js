@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 exports.login = async (req, res) => {
-  const { email, password } = req.body; //o gal headers naudoti
+  const { email, password } = req.body;
   if (!email || !password) {
     return res
       .status(400)
@@ -27,5 +27,35 @@ exports.login = async (req, res) => {
     res
       .status(500)
       .json({ error: "Autentifikavimo klaida: " + error.toString() });
+  }
+};
+
+exports.register = async (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res
+      .status(400)
+      .json({ error: "Iveskite el. pasta arba slaptazodi" });
+  }
+  try {
+    const isUserExist = await User.findOne({
+      email: email,
+    });
+    if (isUserExist) {
+      return res
+        .status(400)
+        .json({ status: 400, message: "Email all ready in use" });
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new User({
+      email: email,
+      password: hashedPassword,
+    });
+    await user.save();
+    res.json(user);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Klaida nuskaitant duomenis" + error.toString() });
   }
 };

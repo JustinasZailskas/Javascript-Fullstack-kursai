@@ -3,6 +3,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const authRouter = require("./routes/authRoutes");
 const leagueRouter = require("./routes/leagueRoutes");
 const seasonRouter = require("./routes/seasonRoutes");
 const organizerRoutes = require("./routes/organizerRoutes");
@@ -14,6 +15,7 @@ const connectToDatabase = require("./services/database");
 connectToDatabase();
 app.use(corsHandler);
 app.use(express.json()); //Kodel si kodo eilute turi buti iterpta?
+app.use("/", authRouter);
 app.use("/league", leagueRouter);
 app.use("/season", seasonRouter);
 app.use("/organizer", organizerRoutes);
