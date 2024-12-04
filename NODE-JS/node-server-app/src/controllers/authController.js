@@ -29,3 +29,34 @@ exports.login = async (req, res) => {
       .json({ error: "Autentifikavimo klaida: " + error.toString() });
   }
 };
+
+exports.register = async (req, res) => {
+  const { username, email, password } = req.body;
+  if (!username || !email || !password) {
+    return res
+      .status(400)
+      .json({ error: "Iveskite username arba el. pasta arba slaptazodi" });
+  }
+  try {
+    const isUserExist = await User.findOne({
+      email: email,
+    });
+    if (isUserExist) {
+      return res
+        .status(400)
+        .json({ status: 400, message: "Email all ready in use" });
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new User({
+      username: username,
+      email: email,
+      password: hashedPassword,
+    });
+    await user.save();
+    res.json(user);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Klaida nuskaitant duomenis" + error.toString() });
+  }
+};
