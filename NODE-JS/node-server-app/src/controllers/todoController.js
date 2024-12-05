@@ -1,139 +1,73 @@
 const Todo = require("../models/todo");
+const todoService = require("../services/todoService");
 
 exports.getAllTodos = async (req, res) => {
   try {
-    const todoItems = await Todo.find({});
+    const todoItems = await todoService.getAllByUser(req.user._id.toString());
     res.json(todoItems);
   } catch (error) {
     res
       .status(500)
-      .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
+      .json({ error: "Klaida nuskaitant duomenis: " + error.message });
   }
 };
 
 exports.getTodoById = async (req, res) => {
-  const id = req.params.id;
   try {
-    const elementas = await Todo.findById(id);
-    if (!elementas) {
-      res.status(404).json({ message: "Toks elementas nerastas" });
-    }
-    res.json(elementas);
+    const todo = await todoService.getTodoById(req.params.id);
+    res.json(todo);
   } catch (error) {
-    if (error.statusCode === 404 || error.kind === "ObjectId") {
+    if (error.message === "Todo not found") {
+      res.status(404).json({ error: "Toks elementas nerastas" });
+    } else {
       res
-        .status(404)
-        .json({ error: "Toks elementas nerastas: " + error.toString() });
+        .status(500)
+        .json({ error: "Klaida nuskaitant duomenis: " + error.message });
     }
-    res
-      .status(500)
-      .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
   }
 };
 
 exports.createTodo = async (req, res) => {
   try {
-    console.log(req.body);
-    const { title, author, status, createdAt } = req.body;
-    if (!title || !author || !status || !createdAt) {
-      res
-        .status(400)
-        .json({ error: "Uzpildykite visus laukelius: " + error.toString() }); //4xx klaidos yra kliento klaidos
-    }
-    const todo = new Todo({ title, author, status, createdAt });
-    await todo.save();
+    const todo = await todoService.createTodo(req.body, req.user);
     res.json(todo);
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
+    if (error.message === "Missing required fields") {
+      res.status(400).json({ error: "Uzpildykite visus laukelius" });
+    } else {
+      res.status(500).json({ error: "Klaida kuriant įrašą: " + error.message });
+    }
   }
 };
 
 exports.updateTodo = async (req, res) => {
-  const id = req.params.id;
-  console.log(req.body);
   try {
-    const { title, author, status, createdAt } = req.body;
-
-    const elementas = await Todo.findById(id);
-    if (!elementas) {
+    await todoService.updateTodo(req.params.id, req.body);
+    res.json({ message: "Elementas atnaujintas" });
+  } catch (error) {
+    if (error.message === "Todo not found") {
       res
         .status(404)
         .json({ error: "Toks elementas nerastas, negalima atnaujinti" });
+    } else {
+      res
+        .status(500)
+        .json({ error: "Klaida atnaujinant duomenis: " + error.message });
     }
-
-    elementas.title = title;
-    elementas.author = author;
-    elementas.status = status;
-    elementas.createdAt = createdAt;
-
-    await elementas.save();
-
-    res.json({ message: "Elementas atnaujintas" });
-  } catch (error) {
-    if (error.statusCode === 404 || error.kind === "ObjectId") {
-      res.status(404).json({ error: "Blogas identifikavimo kodas: " });
-      return;
-    }
-    res
-      .status(500)
-      .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
   }
 };
 
 exports.deleteTodo = async (req, res) => {
-  const id = req.params.id;
   try {
-    const elementas = await Todo.findByIdAndDelete(id);
-    console.log(elementas);
-
-    if (!elementas) {
-      res.json({ error: "Elementas nerastas" });
-    }
+    await todoService.deleteTodo(req.params.id);
     res.json({ message: "Elementas yra istrintas" });
   } catch (error) {
-    res.status(400).json({
-      error: "Elementas neistrintas, nes jis nerastas: " + error.toString(),
-    });
+    if (error.message === "Todo not found") {
+      res.status(404).json({ error: "Elementas nerastas" });
+    } else {
+      res
+        .status(400)
+        .json({ error: "Klaida trinant elementą: " + error.message });
+    }
   }
 };
-
-//   app.patch("/todo/:id", async (req, res) => {
-//     const id = req.params.id;
-
-//     try {
-//       const { title, author, status, createdAt } = req.body;
-//       const elementas = await Todo.findById(id);
-//       console.log(elementas);
-//       if (!elementas) {
-//         res
-//           .status(404)
-//           .json({ error: "Toks elementas nerastas, negalima atnaujinti" });
-//       }
-
-//       if (title !== undefined) {
-//         elementas.title = title;
-//       }
-//       if (author !== undefined) {
-//         elementas.author = author;
-//       }
-//       if (status !== undefined) {
-//         elementas.status = status;
-//       }
-//       if (createdAt !== undefined) {
-//         elementas.createdAt = createdAt;
-//       }
-//       await elementas.save();
-
-//       res.json({ message: "Elementas atnaujintas" });
-//     } catch (error) {
-//       if (error.statusCode === 404 || error.kind === "ObjectId") {
-//         res.status(404).json({ error: "Blogas identifikavimo kodas: " });
-//         return;
-//       }
-//       res
-//         .status(500)
-//         .json({ error: "Klaida nuskaitant duomenis: " + error.toString() });
-//     }
-//   });

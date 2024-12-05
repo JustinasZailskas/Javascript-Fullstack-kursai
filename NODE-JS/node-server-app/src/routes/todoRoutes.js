@@ -16,7 +16,6 @@ router.get(
   "/:id",
   auth,
   checkPermission("read_own_todos"),
-  cacheMiddleware,
   todoController.getTodoById
 );
 router.post(
