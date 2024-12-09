@@ -9,9 +9,10 @@ const Todo = require("./models/todo");
 const corsHandler = require("./middlewares/corsHandler");
 const connectToDatabase = require("./services/database");
 const auth = require("./middlewares/authMiddleware");
+const cors = require("cors");
 
 connectToDatabase();
-app.use(corsHandler);
+app.use(cors());
 app.use(express.json()); //Kodel si kodo eilute turi buti iterpta?
 app.use("/", authRouter);
 app.use("/todo", auth, todoRouter);

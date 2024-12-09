@@ -10,7 +10,6 @@ class TodoService {
 
   async getTodoById(id) {
     const todo = await todoRepository.findById(id);
-    console.log(todo);
 
     if (!todo) {
       throw new Error("Todo not found");
