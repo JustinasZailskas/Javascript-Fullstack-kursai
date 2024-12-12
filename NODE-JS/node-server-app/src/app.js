@@ -7,6 +7,7 @@ const todoRouter = require("./routes/todoRoutes");
 const authRouter = require("./routes/authRoutes");
 const Todo = require("./models/todo");
 const corsHandler = require("./middlewares/corsHandler");
+const errorHandler = require("./middlewares/errorHandler");
 const connectToDatabase = require("./services/database");
 const auth = require("./middlewares/authMiddleware");
 const cors = require("cors");
@@ -28,3 +29,5 @@ mongoose.connection.once("open", () => {
     console.log(`Serveris veikia ant ${port} porto`);
   });
 });
+
+app.use(errorHandler);

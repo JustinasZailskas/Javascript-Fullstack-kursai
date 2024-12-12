@@ -12,7 +12,7 @@ class TodoService {
     const todo = await todoRepository.findById(id);
 
     if (!todo) {
-      throw new Error("Todo not found");
+      return null;
     }
     return todo;
   }

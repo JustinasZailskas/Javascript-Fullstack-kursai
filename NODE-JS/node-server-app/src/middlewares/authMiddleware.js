@@ -1,26 +1,37 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
+const AppError = require("../utils/errors/AppError");
+const ErrorTypes = require("../utils/errors/errorTypes");
 
-const authenticateUser = async (req, res, next) => {
-  const authorizationHeader = req.header("Authorization");
-  if (!authorizationHeader) {
-    return res.status(401).json({ error: "Missing authrization" });
-  }
-  const token = authorizationHeader.split(" ")[1];
-  if (!token) {
-    return res.status(401).json({ error: "Access denied" });
-  }
+const authenticateUser = (req, res, next) => {
   try {
+    const authorizationHeader = req.header("Authorization");
+    if (!authorizationHeader) {
+      throw new AppError(
+        "Missing authorization header",
+        401,
+        ErrorTypes.AUTHENTICATION_ERROR
+      );
+    }
+    const token = authorizationHeader.split(" ")[1];
+    if (!token) {
+      throw new AppError("Missing token", 401, ErrorTypes.AUTHENTICATION_ERROR);
+    }
     const decoded = jwt.verify(token, "your-secret-key");
     req.userID = decoded.userID;
-    const user = await User.findById(decoded.userID);
-    if (!user) {
-      return res.status(401).json({ error: "User not found" });
-    }
-    req.user = user;
-    next();
+    User.findById(decoded.userID).then((user) => {
+      if (!user) {
+        throw new AppError(
+          "Prieiga negalima. Prašome prisijungti",
+          401,
+          ErrorTypes.AUTHENTICATION_ERROR
+        );
+      }
+      req.user = user;
+      next();
+    });
   } catch (error) {
-    res.status(401).json({ error: "Invalid token" + error.toString() });
+    next(error);
   }
 };
 

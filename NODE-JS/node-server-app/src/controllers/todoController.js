@@ -1,30 +1,22 @@
 const Todo = require("../models/todo");
 const todoService = require("../services/todoService");
+const AppError = require("../utils/errors/AppError");
 
-exports.getAllTodos = async (req, res) => {
-  try {
-    const todoItems = await todoService.getAllByUser(req.user._id.toString());
+exports.getAllTodos = (req, res) => {
+  todoService.getAllByUser(req.user._id.toString()).then((todoItems) => {
+    if (!todoItems) {
+      throw new AppError("Elementai nerasti", 404);
+    }
     res.json(todoItems);
-  } catch (error) {
-    res
-      .status(500)
-      .json({ error: "Klaida nuskaitant duomenis: " + error.message });
-  }
+  });
 };
 
 exports.getTodoById = async (req, res) => {
-  try {
-    const todo = await todoService.getTodoById(req.params.id);
-    res.json(todo);
-  } catch (error) {
-    if (error.message === "Todo not found") {
-      res.status(404).json({ error: "Toks elementas nerastas" });
-    } else {
-      res
-        .status(500)
-        .json({ error: "Klaida nuskaitant duomenis: " + error.message });
-    }
+  const todo = await todoService.getTodoById(req.params.id);
+  if (!todo) {
+    return res.status(404).json({ error: "Elementas nerastas" });
   }
+  res.json(todo);
 };
 
 exports.createTodo = async (req, res) => {
