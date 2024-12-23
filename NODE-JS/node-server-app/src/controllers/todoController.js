@@ -21,7 +21,11 @@ exports.getTodoById = async (req, res) => {
 
 exports.createTodo = async (req, res) => {
   try {
-    const todo = await todoService.createTodo(req.body, req.user);
+    const { title, status, createdAt } = req.body;
+    const todo = await todoService.createTodo(
+      { title, status, createdAt },
+      req.user
+    );
     res.json(todo);
   } catch (error) {
     if (error.message === "Missing required fields") {

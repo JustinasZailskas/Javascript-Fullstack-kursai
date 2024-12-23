@@ -9,7 +9,7 @@ const todoSchema = new mongoose.Schema({
     ref: "users",
     required: true,
   },
-  createdAt: Number,
+  createdAt: Date,
 });
 
 const todo = mongoose.model("Todo", todoSchema, "todoItems");
