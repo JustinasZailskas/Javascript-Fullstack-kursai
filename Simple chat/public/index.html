@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket Demo</title>
+  </head>
+  <body>
+    <h1>WebSocket Demo</h1>
+    <input id="usernameInput" type="text" placeholder="Type your name" />
+    <button id="usernameButton">Nustatyti varda</button>
+    <input id="messageInput" type="text" placeholder="Type a message" />
+    <button id="sendButton">Send</button>
+    <div id="messages"></div>
+
+    <script>
+      const usernameInput = document.getElementById("usernameInput");
+      const messageInput = document.getElementById("messageInput");
+      const sendButton = document.getElementById("sendButton");
+      const messageDiv = document.getElementById("messages");
+      const ws = new WebSocket("ws://localhost:3000");
+
+      ws.onopen = () => {
+        console.log("Connected to WebSocket server");
+      };
+
+      ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        const messageElement = document.createElement("div");
+        if (data.type === "chat") {
+          messageElement.textContent = `${data.username}: ${data.message}`;
+        } else if (data.type === "system") {
+          console.log(data);
+          messageElement.textContent = `SISTEMA: ${data.message}`;
+        }
+        messageDiv.appendChild(messageElement);
+      };
+
+      document
+        .getElementById("usernameButton")
+        .addEventListener("click", () => {
+          const username = document.getElementById("usernameInput").value;
+          if (username) {
+            ws.send(JSON.stringify({ type: "setName", username }));
+            usernameInput.disabled = true;
+            messageInput.disabled = false;
+            sendButton.disabled = false;
+          }
+        });
+
+      document.getElementById("sendButton").addEventListener("click", () => {
+        const message = document.getElementById("messageInput").value;
+        if (message) {
+          ws.send(JSON.stringify({ type: "chat", message }));
+          messageInput.value = "";
+        }
+      });
+      ws.onclose = () => {
+        const closeMessage = document.createElement("div");
+        closeMessage.textContent = "Ryšys uždarytas.";
+        messageDiv.appendChild(closeMessage);
+      };
+    </script>
+  </body>
+</html>
