@@ -1,5 +1,23 @@
+:root {
+  --background-light: aliceblue;
+  --background-dark: green;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.light {
+  background-color: var(--background-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark {
+  background-color: var(--background-dark);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .App-logo {
@@ -14,14 +32,13 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: blueviolet;
 }
 
 .App-link {

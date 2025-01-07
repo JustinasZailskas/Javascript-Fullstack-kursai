@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import LeagueSelection from "./components/LeagueSelection";
@@ -7,6 +8,10 @@ import Greetings from "./components/Greetings";
 import ContactCard from "./components/ContactCard";
 import Hobbies from "./components/Hobbies";
 import Counter from "./components/Counter";
+import CounterWithRequirements from "./components/CounterWithRequirements";
+import InputCharacters from "./components/InputCharacters";
+import ThemeComponent from "./components/ThemeComponent";
+import ArrayModification from "./components/ArrayModification";
 
 const leaguesArray = [
   { id: 1, title: "Street" },
@@ -21,8 +26,14 @@ const hobbiesList = [
 ];
 
 function App() {
+  const [theme, setTheme] = useState(false);
+  const changeTheme = () => {
+    setTheme((prevTheme) => !prevTheme);
+  };
+  const appClass = theme ? "dark" : "light";
   return (
-    <div className="App">
+    <div className={appClass}>
+      <ThemeComponent changeTheme={changeTheme} />
       <header className="App-header">
         <Greetings />
       </header>
@@ -52,6 +63,18 @@ function App() {
       <footer>
         <LeagueSelection data={leaguesArray} />
       </footer>
+      <section>
+        <h1>Uzduotys su state</h1>
+      </section>
+      <section>
+        <CounterWithRequirements />
+      </section>
+      <section>
+        <InputCharacters />
+      </section>
+      <section>
+        <ArrayModification />
+      </section>
     </div>
   );
 }
