@@ -4,6 +4,7 @@ import { ButtonComponent } from "./components/ButtonComponent";
 import EmailValidation from "./components/EmailValidation";
 import DataTable from "./components/DataTable";
 import citiesData from "./cities.json";
+import ColorGenerator from "./components/ColorGenerator";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -33,6 +34,7 @@ function App() {
       </section>
       <section>
         <h3>Sesta uzduotis: spalvu generatorius</h3>
+        <ColorGenerator />
       </section>
     </div>
   );
