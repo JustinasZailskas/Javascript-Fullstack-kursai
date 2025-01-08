@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import { ButtonComponent } from "./components/ButtonComponent";
 import EmailValidation from "./components/EmailValidation";
+import DataTable from "./components/DataTable";
+import citiesData from "./cities.json";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -24,6 +26,13 @@ function App() {
       <section>
         <h3>Ketvirta uzduotis: el. pasto validacija</h3>
         <EmailValidation />
+      </section>
+      <section>
+        <h3>Penkta uzduotis</h3>
+        <DataTable data={citiesData} />
+      </section>
+      <section>
+        <h3>Sesta uzduotis: spalvu generatorius</h3>
       </section>
     </div>
   );

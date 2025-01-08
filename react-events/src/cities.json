@@ -1,286 +1,42 @@
 [
-    {
-        "ID": 1,
-        "city": "Vilnius"
-    },
-    {
-        "ID": 2,
-        "city": "Kaunas"
-    },
-    {
-        "ID": 3,
-        "city": "Klaipėda"
-    },
-    {
-        "ID": 4,
-        "city": "Šiauliai"
-    },
-    {
-        "ID": 5,
-        "city": "Panevėžys"
-    },
-    {
-        "ID": 6,
-        "city": "Alytus"
-    },
-    {
-        "ID": 7,
-        "city": "Marijampolė"
-    },
-    {
-        "ID": 8,
-        "city": "Mažeikiai"
-    },
-    {
-        "ID": 9,
-        "city": "Jonava"
-    },
-    {
-        "ID": 10,
-        "city": "Utena"
-    },
-    {
-        "ID": 11,
-        "city": "Kėdainiai"
-    },
-    {
-        "ID": 12,
-        "city": "Telšiai"
-    },
-    {
-        "ID": 13,
-        "city": "Tauragė"
-    },
-    {
-        "ID": 14,
-        "city": "Ukmergė"
-    },
-    {
-        "ID": 15,
-        "city": "Visaginas"
-    },
-    {
-        "ID": 16,
-        "city": "Plungė"
-    },
-    {
-        "ID": 17,
-        "city": "Kretinga"
-    },
-    {
-        "ID": 18,
-        "city": "Palanga"
-    },
-    {
-        "ID": 19,
-        "city": "Druskininkai"
-    },
-    {
-        "ID": 20,
-        "city": "Radviliškis"
-    },
-    {
-        "ID": 21,
-        "city": "Biržai"
-    },
-    {
-        "ID": 22,
-        "city": "Joniškis"
-    },
-    {
-        "ID": 23,
-        "city": "Rokiškis"
-    },
-    {
-        "ID": 24,
-        "city": "Šilutė"
-    },
-    {
-        "ID": 25,
-        "city": "Tytuvėnai"
-    },
-    {
-        "ID": 26,
-        "city": "Elektrėnai"
-    },
-    {
-        "ID": 27,
-        "city": "Prienai"
-    },
-    {
-        "ID": 28,
-        "city": "Šakiai"
-    },
-    {
-        "ID": 29,
-        "city": "Kuršėnai"
-    },
-    {
-        "ID": 30,
-        "city": "Garliava"
-    },
-    {
-        "ID": 31,
-        "city": "Grigiškės"
-    },
-    {
-        "ID": 32,
-        "city": "Birštonas"
-    },
-    {
-        "ID": 33,
-        "city": "Skuodas"
-    },
-    {
-        "ID": 34,
-        "city": "Pakruojis"
-    },
-    {
-        "ID": 35,
-        "city": "Švenčionys"
-    },
-    {
-        "ID": 36,
-        "city": "Ignalina"
-    },
-    {
-        "ID": 37,
-        "city": "Kupiškis"
-    },
-    {
-        "ID": 38,
-        "city": "Varėna"
-    },
-    {
-        "ID": 39,
-        "city": "Neringa"
-    },
-    {
-        "ID": 40,
-        "city": "Kazlų Rūda"
-    },
-    {
-        "ID": 41,
-        "city": "Molėtai"
-    },
-    {
-        "ID": 42,
-        "city": "Šilalė"
-    },
-    {
-        "ID": 43,
-        "city": "Pasvalys"
-    },
-    {
-        "ID": 44,
-        "city": "Žiežmariai"
-    },
-    {
-        "ID": 45,
-        "city": "Kaišiadorys"
-    },
-    {
-        "ID": 46,
-        "city": "Trakai"
-    },
-    {
-        "ID": 47,
-        "city": "Rietavas"
-    },
-    {
-        "ID": 48,
-        "city": "Eišiškės"
-    },
-    {
-        "ID": 49,
-        "city": "Pabradė"
-    },
-    {
-        "ID": 50,
-        "city": "Zarasai"
-    },
-    {
-        "ID": 51,
-        "city": "Vievis"
-    },
-    {
-        "ID": 52,
-        "city": "Daugai"
-    },
-    {
-        "ID": 53,
-        "city": "Raseiniai"
-    },
-    {
-        "ID": 54,
-        "city": "Šeduva"
-    },
-    {
-        "ID": 55,
-        "city": "Vilkaviškis"
-    },
-    {
-        "ID": 56,
-        "city": "Jurbarkas"
-    },
-    {
-        "ID": 57,
-        "city": "Pagėgiai"
-    },
-    {
-        "ID": 58,
-        "city": "Anykščiai"
-    },
-    {
-        "ID": 59,
-        "city": "Kalvarija"
-    },
-    {
-        "ID": 60,
-        "city": "Lazdijai"
-    },
-    {
-        "ID": 61,
-        "city": "Seda"
-    },
-    {
-        "ID": 62,
-        "city": "Salantai"
-    },
-    {
-        "ID": 63,
-        "city": "Varniai"
-    },
-    {
-        "ID": 64,
-        "city": "Žagarė"
-    },
-    {
-        "ID": 65,
-        "city": "Gelgaudiškis"
-    },
-    {
-        "ID": 66,
-        "city": "Vievis"
-    },
-    {
-        "ID": 67,
-        "city": "Vievio"
-    },
-    {
-        "ID": 68,
-        "city": "Žiežmariai"
-    },
-    {
-        "ID": 69,
-        "city": "Naujoji Akmenė"
-    },
-    {
-        "ID": 70,
-        "city": "Nemėžis"
-    },
-    {
-        "ID": 71,
-        "city": "Dūkštas"
-    }
+  {
+    "ID": 1,
+    "city": "Vilnius"
+  },
+  {
+    "ID": 2,
+    "city": "Kaunas"
+  },
+  {
+    "ID": 3,
+    "city": "Klaipėda"
+  },
+  {
+    "ID": 4,
+    "city": "Šiauliai"
+  },
+  {
+    "ID": 5,
+    "city": "Panevėžys"
+  },
+  {
+    "ID": 6,
+    "city": "Alytus"
+  },
+  {
+    "ID": 7,
+    "city": "Marijampolė"
+  },
+  {
+    "ID": 8,
+    "city": "Mažeikiai"
+  },
+  {
+    "ID": 9,
+    "city": "Jonava"
+  },
+  {
+    "ID": 10,
+    "city": "Utena"
+  }
 ]

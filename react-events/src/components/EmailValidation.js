@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function EmailValidation() {
   const [email, setEmail] = useState("");
-  const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(false);
 
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
