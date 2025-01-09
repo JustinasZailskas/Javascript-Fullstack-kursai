@@ -6,6 +6,7 @@ import DataTable from "./components/DataTable";
 import citiesData from "./cities.json";
 import ColorGenerator from "./components/ColorGenerator";
 import FormComponent from "./components/FormComponent";
+import TimerComponent from "./components/TimerComponent";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -74,6 +75,7 @@ function App() {
       </section>
       <section>
         <h3>Devinta uzduotis: Laikmatis su valdymu</h3>
+        <TimerComponent />
       </section>
     </div>
   );
