@@ -1,3 +1,7 @@
-export const ButtonComponent = ({ title, callbackFunction }) => {
-  return <button onClick={callbackFunction}>{title}</button>;
+export const ButtonComponent = ({ disabled, title, callbackFunction }) => {
+  return (
+    <button disabled={disabled} onClick={callbackFunction}>
+      {title}
+    </button>
+  );
 };

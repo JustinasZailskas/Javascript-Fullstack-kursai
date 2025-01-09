@@ -7,16 +7,22 @@ import citiesData from "./cities.json";
 import ColorGenerator from "./components/ColorGenerator";
 import FormComponent from "./components/FormComponent";
 import TimerComponent from "./components/TimerComponent";
+import RatingComponent from "./components/RatingComponent";
 
 function App() {
   const [value, setValue] = useState(0);
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
+  const [rating, setRating] = useState(0);
+  const [ratingIncrBtn, setRatingIncrBtn] = useState(true);
+  const [ratingDecrBtn, setRatingDecrBtn] = useState(true);
 
   const onIncrement = () => setValue(value + 1);
   const onDecrement = () => setValue(value - 1);
   const onIncremntBy5 = () => setValue(value + 5);
   const onReset = () => setValue(0);
+  const incrementRating = () => setRating(rating + 1);
+  const decrementRating = () => setRating(rating - 1);
 
   const handleName = (data) => {
     setName(data);
@@ -76,6 +82,22 @@ function App() {
       <section>
         <h3>Devinta uzduotis: Laikmatis su valdymu</h3>
         <TimerComponent />
+      </section>
+      <section>
+        <h3>10 uzduotis: Reitingu sistema</h3>
+        <RatingComponent starsRating={rating} />
+        <div>
+          <ButtonComponent
+            disabled={rating < 5 ? false : true}
+            title="Padidinti ivertinima"
+            callbackFunction={incrementRating}
+          />
+          <ButtonComponent
+            disabled={rating < 1 ? true : false}
+            title="Sumazinti ivertinima"
+            callbackFunction={decrementRating}
+          />
+        </div>
       </section>
     </div>
   );
