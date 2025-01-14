@@ -18,7 +18,7 @@ function RatingComponent({ starsRating }) {
       );
     }
   }
-
+  //★
   return <>{stars}</>;
 }
 
