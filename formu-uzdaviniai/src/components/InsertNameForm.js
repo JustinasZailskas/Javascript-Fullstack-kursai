@@ -34,13 +34,15 @@ function InsertNameForm() {
           onChange={handleName}
           placeholder="Iveskite varda"
         />
-        <button>Prideti</button>
+        <button type="submit">Prideti</button>
+        <button type="reset" onClick={() => setNameList([])}>
+          Isvalyti sarasa
+        </button>
       </Form>
       <div>
-        <button onClick={() => setNameList([])}>Isvalyti sarasa</button>
         <ul>
           {nameList.map((item) => {
-            return <ul key={item.id}>{item.name}</ul>;
+            return <li key={item.id}>{item.name}</li>;
           })}
         </ul>
       </div>
