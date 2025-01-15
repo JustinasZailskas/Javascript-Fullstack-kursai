@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import RegistrationForm from "./components/RegistrationForm";
+import UncontrollerdForm from "./components/UncontrollerdForm";
+import RegistrationWithValidation from "./components/RegistrationWithValidation";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Kontroliuojama forma</h3>
+      <RegistrationForm />
+      <h3>Nekontroliuojama forma</h3>
+      <UncontrollerdForm />
+      <h3>Registracija su validacija</h3>
+      <RegistrationWithValidation />
     </div>
   );
 }
