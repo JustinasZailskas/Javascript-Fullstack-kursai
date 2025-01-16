@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "./Forms/Form";
 import Input from "./Forms/Input";
+import ButtonComponent from "./ButtonComponent";
 
 function InsertNameForm() {
   const [nameValue, setNameValue] = useState("");
@@ -22,7 +23,9 @@ function InsertNameForm() {
     ]);
     setNameValue("");
   };
-
+  const cleartList = () => {
+    setNameList([]);
+  };
   return (
     <>
       <Form onSubmit={addName}>
@@ -34,10 +37,9 @@ function InsertNameForm() {
           onChange={handleName}
           placeholder="Iveskite varda"
         />
-        <button type="submit">Prideti</button>
-        <button type="reset" onClick={() => setNameList([])}>
-          Isvalyti sarasa
-        </button>
+        <ButtonComponent type="submit" title="Prideti" />
+
+        <ButtonComponent type="reset" action={cleartList} title="Isvalyti" />
       </Form>
       <div>
         <ul>

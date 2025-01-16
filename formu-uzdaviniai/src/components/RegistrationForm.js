@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "./Forms/Form";
 import Input from "./Forms/Input";
+import ButtonComponent from "./ButtonComponent";
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -32,8 +33,7 @@ function RegistrationForm() {
         onChange={handleChange}
         placeholder="Iveskite slaptazodi"
       />
-
-      <button type="submit">Submit</button>
+      <ButtonComponent type="submit" title="Submit" />
     </Form>
   );
 }

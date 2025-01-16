@@ -2,6 +2,7 @@ import "./App.css";
 import RegistrationForm from "./components/RegistrationForm";
 import InsertNameForm from "./components/InsertNameForm";
 import FormWithValidation from "./components/FormWithValidation";
+import DynamicForm from "./components/DynamicForm";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       <InsertNameForm />
       <h3>3 praktine uzduotis</h3>
       <FormWithValidation />
+      <h3>Dinamine forma</h3>
+      <DynamicForm />
     </div>
   );
 }

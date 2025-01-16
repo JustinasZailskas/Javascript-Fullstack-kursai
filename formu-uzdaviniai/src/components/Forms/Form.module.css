@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  border-radius: 8px;
+  padding: 8px;
+  border: 2px solid aqua;
+  box-shadow: 2px 2px lightblue;
+  /* background-color: aqua; */
+}
+
+.button {
+  width: 150px;
+  border: 2px solid black;
+  border-radius: 4px;
+  color: black;
+  padding: 4px;
+  margin-top: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  border-color: #e7e7e7;
+  background-color: white;
+}
+
+.button:hover {
+  background: #e7e7e7;
+}

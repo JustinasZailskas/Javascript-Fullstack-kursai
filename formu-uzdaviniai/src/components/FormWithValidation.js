@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "./Forms/Form";
 import Input from "./Forms/Input";
+import ButtonComponent from "./ButtonComponent";
 
 function FormWithValidation() {
   const [formData, setFormData] = useState({
@@ -57,31 +58,33 @@ function FormWithValidation() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Input
-        label="Vardas"
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-      />
-      <Input
-        label="El. pastas"
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      <Input
-        label="SLaptazodis"
-        type="password"
-        name="password"
-        value={formData.password}
-        onChange={handleChange}
-      />
-      {error.name && <p style={{ color: "red" }}>{error.name}</p>}
-      <button type="submit">Register</button>
-    </Form>
+    <>
+      <Form onSubmit={handleSubmit}>
+        <Input
+          label="Vardas"
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+        <Input
+          label="El. pastas"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        <Input
+          label="Slaptazodis"
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        {error.name && <p style={{ color: "red" }}>{error.name}</p>}
+        <ButtonComponent type="submit" title="Register" />
+      </Form>
+    </>
   );
 }
 export default FormWithValidation;
