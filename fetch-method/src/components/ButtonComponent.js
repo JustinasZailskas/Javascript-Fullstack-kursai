@@ -1,6 +1,6 @@
-const ButtonComponent = ({ type, action, title }) => {
+const ButtonComponent = ({ type, action, title, disable }) => {
   return (
-    <button type={type} onClick={action}>
+    <button type={type} onClick={action} disabled={disable}>
       {title}
     </button>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ButtonComponent from "./ButtonComponent";
 import axios from "axios";
+import PaginationComponent from "./PaginationComponent";
 
 function PostData() {
   const [posts, setPosts] = useState([]);
@@ -9,6 +10,8 @@ function PostData() {
     body: "",
   });
   const [error, setError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   useEffect(() => {
     axios
@@ -52,6 +55,17 @@ function PostData() {
       });
   };
 
+  const handlePaginationPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const forwardPage = () => setCurrentPage(currentPage + 1);
+  const backwardPage = () => setCurrentPage(currentPage - 1);
+
   return (
     <>
       <form onSubmit={saveData}>
@@ -71,9 +85,29 @@ function PostData() {
         <ButtonComponent type="submit" title="Save" />
       </form>
       <ul>
-        {posts.map((post, index) => (
+        {currentPosts.map((post, index) => (
           <li key={index}>{post.title}</li>
         ))}
+        <ButtonComponent
+          title="Atgal"
+          disable={currentPage <= 1 ? true : false}
+          action={backwardPage}
+        />
+        <PaginationComponent
+          arrayLenght={posts.length}
+          postsPerPage={postsPerPage}
+          handlePagination={handlePaginationPage}
+          currentPage={currentPage}
+        />
+        <ButtonComponent
+          title="Pirmyn"
+          disable={
+            currentPage === Math.ceil(posts.length / postsPerPage)
+              ? true
+              : false
+          }
+          action={forwardPage}
+        />
       </ul>
     </>
   );
