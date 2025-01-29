@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import ButtonComponent from "./ButtonComponent";
 import axios from "axios";
 import PaginationComponent from "./PaginationComponent";
+import styles from "../components/Post.module.css";
+import ModalComponent from "./ModalComponent";
+import modalStyles from "../components/Modal.module.css";
 
 function PostData() {
   const [posts, setPosts] = useState([]);
@@ -12,6 +15,8 @@ function PostData() {
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     axios
@@ -66,6 +71,26 @@ function PostData() {
   const forwardPage = () => setCurrentPage(currentPage + 1);
   const backwardPage = () => setCurrentPage(currentPage - 1);
 
+  const openModal = (postId) => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+      .then((response) => {
+        console.log(response.data);
+        setComments(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setIsOpenModal(true);
+  };
+  const closeModal = () => setIsOpenModal(false);
+  const showComments = comments.map((comment) => {
+    <p>
+      {comment.id} tekstas: {comment.name}
+    </p>;
+  });
+
   return (
     <>
       <form onSubmit={saveData}>
@@ -86,7 +111,14 @@ function PostData() {
       </form>
       <ul>
         {currentPosts.map((post, index) => (
-          <li key={index}>{post.title}</li>
+          <div className={styles.postBlock}>
+            <li key={post.id}>{post.title}</li>
+            <ButtonComponent
+              key={index}
+              title="View Comments"
+              action={() => openModal(post.id)}
+            />
+          </div>
         ))}
         <ButtonComponent
           title="Atgal"
@@ -108,6 +140,11 @@ function PostData() {
           }
           action={forwardPage}
         />
+        {
+          <ModalComponent isOpen={isOpenModal} duom={comments}>
+            <ButtonComponent title="&times;" action={closeModal} />
+          </ModalComponent>
+        }
       </ul>
     </>
   );
