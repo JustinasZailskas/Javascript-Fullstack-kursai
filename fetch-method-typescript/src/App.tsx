@@ -1,35 +1,86 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+import ButtonComponent from "./components/ButtonComponent";
+import { Post } from "./types/PostInterface";
+import { Comment } from "./types/CommentInterface";
+import { UserInterface } from "./types/UserInterface";
+import { User } from "./models/User";
+import RecordList from "./components/RecordList";
+import FilterInput from "./components/FilterInput";
+
+type DataType = Post | Comment | UserInterface;
+
+// function hidrateData(data) {
+//   const newObject = new User();
+// }
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [category, setCategory] = useState<string>("posts");
+  const [data, setData] = useState<DataType[]>([]);
+  const [filterValue, setFilterValue] = useState<string>("");
+
+  const fetchData = async (selectedCategory: string) => {
+    try {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/${selectedCategory}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch");
+      }
+
+      if (category === "users") {
+        const data: UserInterface[] = await response.json();
+        const users = data.map(
+          (user) => new User(user.id, user.name, user.username, user.email)
+        );
+        setData(users);
+        return;
+      }
+      const data: DataType[] = await response.json();
+      setData(data);
+    } catch (err: any) {
+      console.log(err.message);
+    } finally {
+    }
+  };
+
+  const handleFilterValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    setFilterValue(e.target.value);
+  };
+
+  useEffect(() => {
+    fetchData(category);
+  }, [category]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ButtonComponent
+        type="button"
+        action={() => setCategory("posts")}
+        title="Load Posts"
+        disable={false}
+      />
+      <ButtonComponent
+        type="button"
+        action={() => setCategory("comments")}
+        title="Load Comments"
+        disable={false}
+      />
+      <ButtonComponent
+        type="button"
+        action={() => setCategory("users")}
+        title="Load Users"
+        disable={false}
+      />
+      <FilterInput filterValue={filterValue} onChange={handleFilterValue} />
+      <RecordList
+        dataType={data}
+        filterType={category}
+        filterValue={filterValue}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
