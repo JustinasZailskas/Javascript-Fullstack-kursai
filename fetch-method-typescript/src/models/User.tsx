@@ -7,10 +7,4 @@ export class User implements UserInterface {
     public username: string,
     public email: string
   ) {}
-  // hydrateData(data: Array<typeof User>) {
-  //     const result = [];
-  //     data.map((item, index) => {
-  //         const ob
-  //     })
-  // }
 }

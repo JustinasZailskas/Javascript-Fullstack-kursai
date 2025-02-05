@@ -1,84 +1,50 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import ButtonComponent from "./components/ButtonComponent";
-import { Post } from "./types/PostInterface";
-import { Comment } from "./types/CommentInterface";
-import { UserInterface } from "./types/UserInterface";
-import { User } from "./models/User";
-import RecordList from "./components/RecordList";
-import FilterInput from "./components/FilterInput";
-
-type DataType = Post | Comment | UserInterface;
-
-// function hidrateData(data) {
-//   const newObject = new User();
-// }
+import { Routes, Route } from "react-router-dom";
+import styles from "./styles/MainPageStyles.module.css";
+import MainPage from "./pages/MainPage";
+import FirstExercise from "./pages/FirstExercise";
+import SecondExercise from "./pages/SecondExercise";
+import ThirdExercise from "./pages/ThirdExercise";
+import FourthExercise from "./pages/FourthExercise";
+import FifthExercise from "./pages/FifthExercise";
+import CommentsComponent from "./pages/CommentsComponent";
 
 function App() {
-  const [category, setCategory] = useState<string>("posts");
-  const [data, setData] = useState<DataType[]>([]);
-  const [filterValue, setFilterValue] = useState<string>("");
-
-  const fetchData = async (selectedCategory: string) => {
-    try {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/${selectedCategory}`
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch");
-      }
-
-      if (category === "users") {
-        const data: UserInterface[] = await response.json();
-        const users = data.map(
-          (user) => new User(user.id, user.name, user.username, user.email)
-        );
-        setData(users);
-        return;
-      }
-      const data: DataType[] = await response.json();
-      setData(data);
-    } catch (err: any) {
-      console.log(err.message);
-    } finally {
-    }
-  };
-
-  const handleFilterValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    setFilterValue(e.target.value);
-  };
-
-  useEffect(() => {
-    fetchData(category);
-  }, [category]);
-
   return (
     <>
-      <ButtonComponent
-        type="button"
-        action={() => setCategory("posts")}
-        title="Load Posts"
-        disable={false}
-      />
-      <ButtonComponent
-        type="button"
-        action={() => setCategory("comments")}
-        title="Load Comments"
-        disable={false}
-      />
-      <ButtonComponent
-        type="button"
-        action={() => setCategory("users")}
-        title="Load Users"
-        disable={false}
-      />
-      <FilterInput filterValue={filterValue} onChange={handleFilterValue} />
-      <RecordList
-        dataType={data}
-        filterType={category}
-        filterValue={filterValue}
-      />
+      <nav className={styles.navContainer}>
+        <ul className={styles.navList}>
+          <li className={styles.navItem}>
+            <a href="/">Pradinis langas</a>
+          </li>
+          <li className={styles.navItem}>
+            <a href="/first-exercise">1 uzduotis</a>
+          </li>
+          <li className={styles.navItem}>
+            <a href="/second-exercise">2 uzduotis</a>
+          </li>
+          <li className={styles.navItem}>
+            <a href="/third-exercise">3 uzduotis</a>
+          </li>
+          <li className={styles.navItem}>
+            <a href="/fourth-exercise">4 uzduotis</a>
+          </li>
+          <li className={styles.navItem}>
+            <a href="/fifth-exercise">5 uzduotis</a>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/first-exercise" element={<FirstExercise />} />
+        <Route path="/second-exercise" element={<SecondExercise />} />
+        <Route path="/third-exercise" element={<ThirdExercise />}>
+          <Route path="fourth-exercise" element={<FourthExercise />} />
+          <Route path="fifth-exercise" element={<FifthExercise />} />
+        </Route>
+        <Route path="/fourth-exercise" element={<FourthExercise />} />
+        <Route path="/fifth-exercise" element={<FifthExercise />} />
+        <Route path="/post-comments/:postId" element={<CommentsComponent />} />
+      </Routes>
     </>
   );
 }

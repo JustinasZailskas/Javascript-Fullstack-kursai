@@ -8,10 +8,10 @@ type DataType = Post | Comment | UserInterface;
 interface DataTypeProps {
   dataType: DataType[];
   filterType: string;
-  filterValue: string;
+  filterValue?: string;
 }
 
-function RecordList({ dataType, filterType, filterValue }: DataTypeProps) {
+function RecordList({ dataType, filterType, filterValue = "" }: DataTypeProps) {
   const [filterAttribute, setFilterAttribute] = useState<string>("title");
   const getItemKeys = (obj: DataType) => {
     const firstFourKeys = Object.entries(obj).slice(0, 4);

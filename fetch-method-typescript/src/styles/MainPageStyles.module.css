@@ -1,0 +1,16 @@
+.navContainer {
+  background-color: #f5e5e5;
+}
+
+.navList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+}
+
+.navItem {
+  color: rgb(12, 11, 11);
+  padding: 10px 20px;
+  display: inline-block;
+}
