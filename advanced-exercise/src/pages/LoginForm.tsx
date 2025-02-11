@@ -1,7 +1,7 @@
 import styles from "../styles/Login.module.css";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../services/AuthContext";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 function LoginForm() {
   const [email, setEmail] = useState<string>("testas@testas.lt");

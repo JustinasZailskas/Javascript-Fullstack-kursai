@@ -36,14 +36,6 @@ function RegistrationWithValidation() {
     return newErrors;
   };
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    let errorMessage = "";
-    if (!emailRegex.test(email)) {
-      errorMessage = "Netinkamas el. pašto formatas.";
-    }
-    setErrors({ ...errors, emailError: errorMessage });
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
