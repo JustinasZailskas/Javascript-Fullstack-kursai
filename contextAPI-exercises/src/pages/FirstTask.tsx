@@ -1,4 +1,3 @@
-import React from "react";
 import CounterResultContainer from "../components/CounterResultContainer";
 import ButtonContainer from "../components/ButtonContainer";
 import { CounterProvider } from "../context/CounterContext";

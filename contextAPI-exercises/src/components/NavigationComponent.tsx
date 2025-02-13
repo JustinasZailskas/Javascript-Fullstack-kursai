@@ -1,7 +1,7 @@
-import React from "react";
 import styles from "../styles/Navigation.module.css";
 import { Link } from "react-router";
 import { useTheme } from "../hooks/useTheme";
+import PrivateRoute from "../routes/PrivateRoute";
 
 const NavigationComponent = () => {
   const { theme, toggleTheme } = useTheme();
@@ -13,13 +13,13 @@ const NavigationComponent = () => {
       <div>
         <ul>
           <li>
-            <Link to="/first-task">Pirma uzduotis</Link>
+            <Link to="/dashboard/first-task">Pirma uzduotis</Link>
           </li>
           <li>
-            <Link to="/second-task">Antra užduotis</Link>
+            <Link to="/dashboard/second-task">Antra užduotis</Link>
           </li>
           <li>
-            <a>Trecia uzduotis</a>
+            <Link to="/dashboard/third-task">Trečia užduotis</Link>
           </li>
           <li>
             <a>Ketvirta uzduotis</a>
@@ -27,6 +27,7 @@ const NavigationComponent = () => {
           <li>
             <a>Penkta uzduotis</a>
           </li>
+
           <li>
             <a onClick={toggleTheme}>
               Pakeisti tema:
